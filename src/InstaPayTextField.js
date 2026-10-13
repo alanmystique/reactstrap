@@ -63,7 +63,7 @@ function InstaPayTextField({
             'ip-field__control--disabled': disabled,
           })}
         >
-          {prefix && <div className="ip-field__prefix">{prefix}</div>}
+          {prefix && <fieldset disabled={disabled} className="ip-field__prefix">{prefix}</fieldset>}
           {!prefix && startIcon && (
             <span className="ip-field__leading" aria-hidden="true">{startIcon}</span>
           )}
@@ -78,7 +78,7 @@ function InstaPayTextField({
             className={classNames('ip-field__input', inputClassName)}
           />
           {endIcon && <span className="ip-field__trailing" aria-hidden="true">{endIcon}</span>}
-          {endAction && <span className="ip-field__action">{endAction}</span>}
+          {endAction && <fieldset disabled={disabled} className="ip-field__action">{endAction}</fieldset>}
         </div>
         {hasMessage && (
           <div

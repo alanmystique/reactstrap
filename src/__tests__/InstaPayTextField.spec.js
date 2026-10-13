@@ -64,6 +64,31 @@ describe('InstaPayTextField (DS 2.1)', () => {
     expect(screen.getByRole('textbox', { name: 'Phone number' })).not.toBe(null);
   });
 
+  it('disables country selector and trailing actions along with the field', () => {
+    render(
+      <InstaPayTextField
+        id="disabled-phone"
+        label="Phone"
+        type="tel"
+        disabled
+        prefix={<select aria-label="Country calling code"><option value="+44">+44</option></select>}
+        endAction={<button type="button" aria-label="Phone options">Options</button>}
+      />,
+    );
+    expect(screen.getByRole('combobox', { name: 'Country calling code' }).closest('fieldset').disabled).toBe(true);
+    expect(screen.getByRole('button', { name: 'Phone options' }).closest('fieldset').disabled).toBe(true);
+    expect(screen.getByRole('textbox', { name: 'Phone' }).disabled).toBe(true);
+  });
+
+  it('supports the icon-free and external-label-free Figma example accessibly', () => {
+    const { container } = render(
+      <InstaPayTextField id="no-label" aria-label="Your username" placeholder="Placeholder" />,
+    );
+    expect(screen.getByRole('textbox', { name: 'Your username' })).not.toBe(null);
+    expect(container.querySelector('.ip-field__control--leading')).toBe(null);
+    expect(container.querySelector('.ip-field__label')).toBe(null);
+  });
+
   it('preserves existing aria description plus generated message ID', () => {
     render(<InstaPayTextField id="email" label="Email" hint="Example" aria-describedby="external-description" />);
     expect(screen.getByRole('textbox', { name: 'Email' }).getAttribute('aria-describedby')).toBe('external-description email-message');

@@ -93,6 +93,14 @@ export function OpticalTextFields() {
           />
           <hr className="ip-rule" />
           <InstaPayTextField
+            id="ip-input-no-label"
+            aria-label="Username without visible label"
+            placeholder="Placeholder"
+            endIcon={eyeIcon}
+          />
+          <p className="ip-type-gallery-note" style={{ marginTop: 9 }}>Exact icon-free reference: no visible label, 16px text inset.</p>
+          <hr className="ip-rule" />
+          <InstaPayTextField
             id="ip-input-amount"
             size="medium"
             label="Amount"

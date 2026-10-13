@@ -161,6 +161,11 @@
   border-right: 1px solid var(--ip-input-outline);
 }
 .ip-field__control--prefix .ip-field__input.form-control { padding-left: 16px; }
+.ip-field__prefix, .ip-field__action {
+  margin: 0;
+  min-width: 0;
+}
+.ip-field__prefix:disabled, .ip-field__action:disabled { cursor: not-allowed; }
 .ip-field__prefix select {
   appearance: none;
   border: 0;
