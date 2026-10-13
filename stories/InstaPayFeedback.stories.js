@@ -16,7 +16,7 @@ export function AlertsAndLabels() {
       <div className="ip-grid">
         <div className="ip-panel ip-col-7">
           <div className="ip-panel-header"><h3>Alerts</h3><span className="ip-panel-subtitle">Figma: 6px radius</span></div>
-          <Alert color="primary"><strong>Everything is on track.</strong><div>We've received your request and will keep you updated.</div></Alert>
+          <Alert color="primary"><strong>Everything is on track.</strong><div>Your request has been received. Updates will follow.</div></Alert>
           <Alert color="secondary" className="ip-notice"><strong>Before you continue</strong><div>Double-check your recipient information.</div></Alert>
           <hr className="ip-rule" />
           {!dismissed ? <Alert color="primary" toggle={() => setDismissed(true)}>This notification can be dismissed.</Alert> : <InstaPayButton variant="tertiary" onClick={() => setDismissed(false)}>Show notification again</InstaPayButton>}
