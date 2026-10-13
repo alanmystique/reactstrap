@@ -38,6 +38,7 @@
     "CHANGELOG.md",
     "dist",
     "src",
+    "instapay",
     "lib",
     "esm",
     "types"

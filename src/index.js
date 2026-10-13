@@ -11,6 +11,7 @@ export NavLink from './NavLink';
 export Breadcrumb from './Breadcrumb';
 export BreadcrumbItem from './BreadcrumbItem';
 export Button from './Button';
+export InstaPayButton from './InstaPayButton';
 export ButtonToggle from './ButtonToggle';
 export ButtonDropdown from './ButtonDropdown';
 export ButtonGroup from './ButtonGroup';

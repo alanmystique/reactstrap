@@ -1,0 +1,167 @@
+/**
+ * InstaPay Design System 2.1 / Reactstrap v9 + Bootstrap 5
+ * Opt-in: import AFTER bootstrap/dist/css/bootstrap.min.css.
+ * Figma: https://www.figma.com/design/1z3vwnijVhrhUoiKqHvdys/InstaPay-DS-2-0?node-id=132-1835
+ *
+ * Use with InstaPayButton only. Existing Reactstrap buttons are unchanged.
+ */
+:root {
+  --ip-brand-500: #5926f0;
+  --ip-brand-hover: #3b17a8;
+  --ip-brand-disabled: #a88bff;
+  --ip-ink: #22106b;
+  --ip-surface-neutral: #eff1f6;
+  --ip-surface-neutral-hover: #e1e5ee;
+  --ip-surface-disabled: #f8f9fc;
+  --ip-shadow-brand-subtle: 0 3px 10px -2px rgb(89 38 240 / 12%);
+  --ip-shadow-brand-hover: 0 3px 10px -2px rgb(89 38 240 / 16%);
+  --ip-shadow-neutral-subtle: 0 1px 1.5px 0 rgb(27 31 42 / 4%);
+  --ip-shadow-neutral-hover:
+    0 1px 2px 0 rgb(27 31 42 / 4%),
+    0 1px 3px 0 rgb(27 31 42 / 5%);
+}
+
+/* Higher specificity than Bootstrap's .btn-primary state rules. */
+.btn.ip-btn {
+  --ip-btn-height: 36px;
+  --ip-btn-radius: 8px;
+  --ip-btn-padding: 14px;
+  --ip-btn-gap: 7px;
+  --ip-btn-icon: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ip-btn-gap);
+  min-height: var(--ip-btn-height);
+  height: var(--ip-btn-height);
+  padding: 0 var(--ip-btn-padding);
+  border: 0;
+  border-radius: var(--ip-btn-radius);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  transition: background-color 150ms ease, box-shadow 150ms ease, color 150ms ease;
+}
+
+.btn.ip-btn--large {
+  --ip-btn-height: 44px;
+  --ip-btn-radius: 10px;
+  --ip-btn-padding: 18px;
+  --ip-btn-gap: 7px;
+  --ip-btn-icon: 20px;
+}
+.btn.ip-btn--small {
+  --ip-btn-height: 32px;
+  --ip-btn-padding: 12px;
+  --ip-btn-gap: 6px;
+  --ip-btn-icon: 16px;
+}
+.btn.ip-btn--xsmall {
+  --ip-btn-height: 28px;
+  --ip-btn-padding: 10px;
+  --ip-btn-gap: 6px;
+  --ip-btn-icon: 14px;
+  font-size: 12px;
+}
+
+.btn.ip-btn--icon-only {
+  width: var(--ip-btn-height);
+  min-width: var(--ip-btn-height);
+  padding: 0;
+}
+
+.ip-btn__label { display: inline-flex; align-items: center; }
+.ip-btn__icon {
+  display: inline-flex;
+  flex: none;
+  width: var(--ip-btn-icon);
+  height: var(--ip-btn-icon);
+  align-items: center;
+  justify-content: center;
+}
+.ip-btn__icon > svg,
+.ip-btn__icon > img { display: block; width: 100%; height: 100%; }
+
+.btn.ip-btn--primary,
+.btn.ip-btn--primary:not(:disabled):not(.disabled) {
+  color: #fff;
+  background: var(--ip-brand-500);
+  box-shadow: var(--ip-shadow-brand-subtle);
+}
+.btn.ip-btn--primary:hover:not(:disabled):not(.disabled),
+.btn.ip-btn--primary:active:not(:disabled):not(.disabled) {
+  color: #fff;
+  background: var(--ip-brand-hover);
+  box-shadow: var(--ip-shadow-brand-hover);
+}
+
+.btn.ip-btn--secondary,
+.btn.ip-btn--secondary:not(:disabled):not(.disabled) {
+  color: var(--ip-ink);
+  background: var(--ip-surface-neutral);
+  box-shadow: var(--ip-shadow-neutral-subtle);
+}
+.btn.ip-btn--secondary:hover:not(:disabled):not(.disabled),
+.btn.ip-btn--secondary:active:not(:disabled):not(.disabled) {
+  color: var(--ip-ink);
+  background: var(--ip-surface-neutral-hover);
+  box-shadow: var(--ip-shadow-neutral-hover);
+}
+
+.btn.ip-btn--tertiary,
+.btn.ip-btn--tertiary:not(:disabled):not(.disabled) {
+  color: var(--ip-brand-500);
+  background: transparent;
+  box-shadow: none;
+}
+.btn.ip-btn--tertiary:hover:not(:disabled):not(.disabled),
+.btn.ip-btn--tertiary:active:not(:disabled):not(.disabled) {
+  color: var(--ip-brand-500);
+  background: var(--ip-surface-neutral);
+  box-shadow: none;
+}
+
+/* Focus is an accessible indicator, never a substitute for hover elevation. */
+.btn.ip-btn:focus { outline: none; }
+.btn.ip-btn:focus-visible {
+  outline: 2px solid #4a32e3;
+  outline-offset: 2px;
+}
+.btn.ip-btn--primary:focus-visible { outline-color: #4a32e3; }
+.btn.ip-btn--secondary:focus-visible,
+.btn.ip-btn--tertiary:focus-visible { outline-color: #1a144f; }
+
+.btn.ip-btn:disabled,
+.btn.ip-btn.disabled,
+.btn.ip-btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 1;
+  box-shadow: none;
+}
+.btn.ip-btn--primary:disabled,
+.btn.ip-btn--primary.disabled,
+.btn.ip-btn--primary[aria-disabled="true"] {
+  color: #fff;
+  background: var(--ip-brand-disabled);
+}
+.btn.ip-btn--secondary:disabled,
+.btn.ip-btn--secondary.disabled,
+.btn.ip-btn--secondary[aria-disabled="true"] {
+  color: var(--ip-ink);
+  background: var(--ip-surface-disabled);
+}
+.btn.ip-btn--tertiary:disabled,
+.btn.ip-btn--tertiary.disabled,
+.btn.ip-btn--tertiary[aria-disabled="true"] {
+  color: var(--ip-brand-disabled);
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn.ip-btn { transition: none; }
+}

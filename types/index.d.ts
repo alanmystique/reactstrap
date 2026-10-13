@@ -15,6 +15,8 @@ export { BreadcrumbProps } from './lib/Breadcrumb';
 export { default as BreadcrumbItem } from './lib/BreadcrumbItem';
 export { BreadcrumbItemProps } from './lib/BreadcrumbItem';
 export { default as Button } from './lib/Button';
+export { default as InstaPayButton } from './lib/InstaPayButton';
+export { InstaPayButtonProps, InstaPayButtonVariant, InstaPayButtonSize } from './lib/InstaPayButton';
 export { ButtonProps } from './lib/Button';
 export { default as ButtonDropdown } from './lib/ButtonDropdown';
 export { ButtonDropdownProps } from './lib/ButtonDropdown';
