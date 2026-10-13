@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FormGroup, Label, Input } from '../src';
 import InstaPayButton from '../src/InstaPayButton';
+import InstaPayTextField from '../src/InstaPayTextField';
 
 export default {
   title: 'InstaPay DS 2.1/Form Controls',
@@ -20,12 +21,12 @@ export function InputsAndSelection() {
         <section className="ip-panel ip-col-6">
           <div className="ip-panel-header"><h3>Text inputs</h3><span className="ip-pill">Figma dimensions</span></div>
           <div className="ip-form-grid">
-            <FormGroup><Label for="ip-field-name">Account name</Label><Input id="ip-field-name" value={name} placeholder="Enter a name" onChange={(e) => setName(e.target.value)} /><div className="ip-form-help">Medium · 40px</div></FormGroup>
-            <FormGroup><Label for="ip-field-large">Account number</Label><Input id="ip-field-large" bsSize="lg" placeholder="0000 0000 0000" /><div className="ip-form-help">Large · 48px</div></FormGroup>
-            <FormGroup><Label for="ip-field-filled">Filled state</Label><Input id="ip-field-filled" defaultValue="InstaPay Wallet" /></FormGroup>
-            <FormGroup><Label for="ip-field-disabled">Disabled state</Label><Input id="ip-field-disabled" disabled defaultValue="Unavailable" /></FormGroup>
+            <InstaPayTextField id="ip-field-name" label="Account name" size="medium" value={name} placeholder="Enter a name" onChange={(e) => setName(e.target.value)} hint="Medium · 40px" />
+            <InstaPayTextField id="ip-field-large" label="Account number" size="large" placeholder="0000 0000 0000" hint="Large · 48px" />
+            <InstaPayTextField id="ip-field-filled" label="Filled state" size="medium" defaultValue="InstaPay Wallet" />
+            <InstaPayTextField id="ip-field-disabled" label="Disabled state" size="medium" disabled defaultValue="Unavailable" />
           </div>
-          <FormGroup><Label for="ip-field-note">Message</Label><Input id="ip-field-note" type="textarea" placeholder="Add an optional note..." /></FormGroup>
+          <InstaPayTextField id="ip-field-note" label="Message" type="textarea" placeholder="Add an optional note..." />
         </section>
         <section className="ip-panel ip-col-6">
           <div className="ip-panel-header"><h3>Select & preferences</h3><span className="ip-panel-subtitle">Try changing values</span></div>
@@ -48,7 +49,7 @@ export function InputsAndSelection() {
           <InstaPayButton variant="primary">Save preferences</InstaPayButton>
         </section>
       </div>
-      <p className="ip-workflow-note" style={{ marginTop: 25 }}>Preview theme: input and selection styling is mapped from the existing Figma controls but awaits full DS 2.1 variant-by-variant sign-off.</p>
+      <p className="ip-workflow-note" style={{ marginTop: 25 }}>Text fields use InstaPayTextField and the updated Figma optical specification. Other selection controls remain Reactstrap preview styles until approved.</p>
     </main>
   );
 }
