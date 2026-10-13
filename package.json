@@ -6,7 +6,10 @@
   "main": "lib/index.js",
   "module": "esm/index.js",
   "types": "types/index.d.ts",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css",
+    "instapay/*.css"
+  ],
   "scripts": {
     "test": "jest --watch",
     "test:ci": "jest",
