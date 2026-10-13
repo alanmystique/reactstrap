@@ -7,6 +7,10 @@ An **opt-in** design layer built directly into the InstaPay Reactstrap fork. Exi
 - **Base:** Reactstrap 9.2.3 (Bootstrap 5)
 - **Status:** Button implementation added; developer app integration and visual/browser tests pending.
 
+## Live preview
+
+Once GitHub Pages is configured with **GitHub Actions**, the [InstaPay DS 2.1 Preview workflow](https://github.com/alanmystique/reactstrap/actions/workflows/instapay-preview.yml) builds and deploys Storybook at **https://alanmystique.github.io/reactstrap/** on pushes to this branch. This is a preview of the fork, not a published npm release.
+
 ## Use
 
 ```jsx
