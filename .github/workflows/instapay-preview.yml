@@ -1,5 +1,8 @@
 name: InstaPay DS 2.1 Preview
 
+# Update the live preview whenever this design-system branch changes.
+# GitHub Pages is protected to deploy from the repository's default branch,
+# so this workflow dispatches the publisher there without merging DS code.
 on:
   push:
     branches:
@@ -7,44 +10,13 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: instapay-ds-preview
-  cancel-in-progress: true
+  contents: write
 
 jobs:
-  build:
+  request-preview:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out DS branch
-        uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: yarn
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build Storybook
+      - name: Request Pages build from default branch
         env:
-          NODE_OPTIONS: --openssl-legacy-provider
-        run: yarn build:docs
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload Storybook
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./build
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy Storybook to Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/${GITHUB_REPOSITORY}/dispatches" -f event_type=instapay-ds-preview
