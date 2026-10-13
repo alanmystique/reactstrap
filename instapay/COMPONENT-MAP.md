@@ -5,7 +5,7 @@ Reference: [InstaPay DS 2.0 / 2.1 Figma library](https://www.figma.com/design/1z
 | Figma family | Figma component set | Reactstrap foundation | DS 2.1 status |
 | --- | --- | --- | --- |
 | Buttons | `132:1835` | `Button` | **Implemented**: `InstaPayButton` + CSS |
-| Text Input | `131:2126` | `Input`, `Label`, `FormGroup` | Pending |
+| Text Input | `131:2126` | `Input`, `Label`, `FormGroup` | **Opt-in implementation:** `InstaPayTextField` / 30 Figma variants |
 | Dropdown | `139:3262` | `Dropdown`, `DropdownToggle`, `DropdownMenu`, `DropdownItem` | Pending |
 | Search | `140:188` | `Input`, `InputGroup` | Pending |
 | Checkbox | `140:263` | `Input type="checkbox"` | Pending |

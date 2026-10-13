@@ -1,0 +1,207 @@
+/**
+ * InstaPay DS 2.1 Text Input / Figma 131:2126, optical reference 514:420.
+ * Opt in by using InstaPayTextField; does not globally modify Reactstrap Input.
+ *
+ * With leading icon: icon visible edge 12px from border, text 44px (large)
+ * or 42px (medium). Without icon: text inset 16px.
+ * Phone prefix starts at 12px; editable number starts 16px after prefix.
+ * Large height 48px, medium 40px, multiline 120px.
+ */
+:root {
+  --ip-input-outline: #eff1f6;
+  --ip-input-hover-outline: #e1e5ee;
+  --ip-input-focus: #5926f0;
+  --ip-input-error: #ee4444;
+  --ip-input-muted: #717b8f;
+  --ip-input-text: #1b1f2a;
+  --ip-input-disabled: #f8f9fc;
+}
+.ip-field {
+  --ip-field-height: 48px;
+  --ip-field-icon-size: 20px;
+  --ip-field-text-size: 16px;
+  --ip-field-text-leading: 24px;
+  --ip-field-text-tracking: -0.015em;
+  --ip-field-label-size: 14px;
+  --ip-field-label-leading: 21px;
+  --ip-field-label-tracking: -0.01em;
+  --ip-field-hint-size: 14px;
+  --ip-field-hint-leading: 20px;
+  --ip-field-hint-tracking: -0.01em;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  font-family: Inter, system-ui, sans-serif;
+}
+.ip-field--medium {
+  --ip-field-height: 40px;
+  --ip-field-icon-size: 18px;
+  --ip-field-text-size: 14px;
+  --ip-field-text-leading: 21px;
+  --ip-field-text-tracking: -0.01em;
+  --ip-field-label-size: 12px;
+  --ip-field-label-leading: 18px;
+  --ip-field-label-tracking: 0;
+  --ip-field-hint-size: 12px;
+  --ip-field-hint-leading: 18px;
+  --ip-field-hint-tracking: 0;
+}
+.ip-field .ip-field__label.form-label {
+  display: block;
+  color: var(--ip-field-label-color, var(--ip-input-text));
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: var(--ip-field-label-size);
+  font-weight: 500;
+  line-height: var(--ip-field-label-leading);
+  letter-spacing: var(--ip-field-label-tracking);
+}
+.ip-field__required { color: var(--ip-input-error); }
+.ip-field__stack { display: flex; min-width: 0; flex-direction: column; gap: 8px; }
+.ip-field__control {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  width: 100%;
+  height: var(--ip-field-height);
+  padding: 0 12px 0 16px;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid var(--ip-input-outline);
+  border-radius: 6px;
+  transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+.ip-field__control--leading { padding-left: 12px; }
+.ip-field__control--prefix { gap: 0; padding-left: 0; }
+.ip-field__control:hover:not(.ip-field__control--disabled) { border-color: var(--ip-input-hover-outline); }
+.ip-field__control:focus-within {
+  border-color: var(--ip-input-focus);
+  box-shadow: 0 0 0 3px rgb(89 38 240 / 8%);
+}
+.ip-field__control--invalid,
+.ip-field__control--invalid:hover,
+.ip-field__control--invalid:focus-within {
+  border-color: var(--ip-input-error);
+}
+.ip-field__control--invalid:focus-within { box-shadow: 0 0 0 3px rgb(238 68 68 / 8%); }
+.ip-field__control--disabled {
+  background: var(--ip-input-disabled);
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+.ip-field .ip-field__input.form-control {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  box-shadow: none;
+  background: transparent;
+  color: var(--ip-input-text);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: var(--ip-field-text-size);
+  font-weight: 400;
+  line-height: var(--ip-field-text-leading);
+  letter-spacing: var(--ip-field-text-tracking);
+}
+.ip-field .ip-field__input.form-control:focus,
+.ip-field .ip-field__input.form-control:focus-visible {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+}
+.ip-field .ip-field__input.form-control::placeholder { color: var(--ip-input-muted); opacity: 1; }
+.ip-field .ip-field__input.form-control:disabled {
+  background: transparent;
+  color: #8b92a1;
+  cursor: not-allowed;
+}
+.ip-field__leading, .ip-field__trailing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ip-field-icon-size);
+  height: var(--ip-field-icon-size);
+  flex: 0 0 var(--ip-field-icon-size);
+  color: var(--ip-input-text);
+}
+.ip-field__leading svg, .ip-field__trailing svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.ip-field__action { display: inline-flex; flex: none; align-items: center; }
+.ip-field__action button {
+  border: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  color: var(--ip-input-text);
+  cursor: pointer;
+  border-radius: 4px;
+}
+.ip-field__action button:focus-visible { outline: 2px solid var(--ip-input-focus); outline-offset: 2px; }
+.ip-field__control--prefix .ip-field__prefix {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  align-self: stretch;
+  padding: 0 12px;
+  border-right: 1px solid var(--ip-input-outline);
+}
+.ip-field__control--prefix .ip-field__input.form-control { padding-left: 16px; }
+.ip-field__prefix select {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--ip-input-text);
+  font-family: inherit;
+  font-size: var(--ip-field-text-size);
+  cursor: pointer;
+}
+.ip-field__control--multiline {
+  height: 120px;
+  align-items: flex-start;
+}
+.ip-field .ip-field__control--multiline .ip-field__input.form-control {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  resize: none;
+}
+.ip-field__control--multiline .ip-field__leading,
+.ip-field__control--multiline .ip-field__trailing,
+.ip-field__control--multiline .ip-field__action { margin-top: 14px; }
+.ip-field__message {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  color: var(--ip-input-muted);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: var(--ip-field-hint-size);
+  line-height: var(--ip-field-hint-leading);
+  letter-spacing: var(--ip-field-hint-tracking);
+  font-weight: 400;
+}
+.ip-field__message--error { color: var(--ip-input-error); }
+.ip-field__helper-icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.ip-field__helper-icon svg { display: block; width: 100%; height: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  .ip-field__control { transition: none; }
+}

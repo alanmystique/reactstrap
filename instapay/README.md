@@ -49,6 +49,22 @@ When consuming **this repository from source** rather than a published package, 
 - Typography: Inter Medium, -3% tracking.
 - Icons: use existing Phosphor Outline-Regular assets from the application. This fork does not bundle an icon library.
 
+## DS 2.1 text inputs
+
+All 30 Figma Text Input variants are optically aligned to the refined [Figma reference](https://www.figma.com/design/1z3vwnijVhrhUoiKqHvdys/InstaPay-Design-System-2.0?node-id=514-420). The reusable `InstaPayTextField` component implements the **12px leading-icon / 16px icon-free** rule and keeps Reactstrap Input's native functionality. Import `reactstrap/instapay/inputs.css` after Bootstrap.
+
+```jsx
+import { InstaPayTextField } from 'reactstrap';
+import 'reactstrap/instapay/inputs.css';
+
+<InstaPayTextField id="username" label="Username" startIcon={<UserIcon />} hint="6–12 characters" />
+<InstaPayTextField id="account" label="Account number" size="medium" placeholder="Enter account number" />
+<InstaPayTextField id="notes" label="Notes" type="textarea" />
+<InstaPayTextField id="phone" label="Phone" type="tel" prefix={<CountryCodeSelector />} />
+```
+
+Large = 48px, Medium = 40px, Multiline = 120px. Label-to-input gap = 12px, input-to-helper gap = 8px. The end action can be an accessible password visibility button. For payment and identity fields, labels remain persistent; floating labels are not the default.
+
 ## DS 2.1 typography
 
 Our 62 Figma text styles have been optically corrected for size-specific tracking and pixel leading. The canonical token mapping is `instapay/typography-spec.json`, with the matching opt-in `instapay/typography.css` implementation. See [TYPOGRAPHY.md](./TYPOGRAPHY.md) for sizes, weights, line heights, usage and mappings. The live Storybook has a separate interactive **Typography** page.

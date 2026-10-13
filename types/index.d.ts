@@ -89,6 +89,8 @@ export { FormGroupProps } from './lib/FormGroup';
 export { default as FormText } from './lib/FormText';
 export { FormTextProps } from './lib/FormText';
 export { default as Input } from './lib/Input';
+export { default as InstaPayTextField } from './lib/InstaPayTextField';
+export { InstaPayTextFieldProps, InstaPayTextFieldSize, InstaPayTextFieldType } from './lib/InstaPayTextField';
 export { InputProps } from './lib/Input';
 export { default as InputGroup } from './lib/InputGroup';
 export { InputGroupProps } from './lib/InputGroup';

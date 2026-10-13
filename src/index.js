@@ -68,6 +68,7 @@ export FormFeedback from './FormFeedback';
 export FormGroup from './FormGroup';
 export FormText from './FormText';
 export Input from './Input';
+export InstaPayTextField from './InstaPayTextField';
 export InputGroup from './InputGroup';
 export InputGroupText from './InputGroupText';
 export Label from './Label';
