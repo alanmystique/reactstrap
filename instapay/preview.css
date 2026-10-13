@@ -181,7 +181,7 @@ textarea.form-control { min-height: 120px; padding: 12px; }
 .ip-section { margin-top: 38px; }
 .ip-section-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; margin-bottom: 16px; }
 .ip-section h2 { color: var(--ip-ink-strong); font-size: 21px; font-weight: 600; letter-spacing: -.055em; margin: 6px 0; }
-.ip-section p { color: var(--ip-ink-muted); font-size: 12px; line-height: 1.7; margin: 0; }
+.ip-section p:not(.ip-type) { color: var(--ip-ink-muted); font-size: 12px; line-height: 1.7; margin: 0; }
 .ip-section-meta { font-size: 11px; color: var(--ip-ink-soft); }
 .ip-grid { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: 16px; }
 .ip-panel { min-width: 0; padding: 26px; border: 1px solid var(--ip-outline); border-radius: var(--ip-lab-radius); background: var(--ip-paper); box-shadow: var(--ip-lab-shadow); }
@@ -283,7 +283,7 @@ body.sb-show-main, .sbdocs, .sbdocs-wrapper, .ip-lab {
   line-height: var(--ip-heading-leading);
   letter-spacing: var(--ip-type-tracking);
 }
-.ip-section p { font-size: var(--ip-type-14); line-height: var(--ip-body-leading); letter-spacing: var(--ip-type-tracking); }
+.ip-section p:not(.ip-type) { font-size: var(--ip-type-14); line-height: var(--ip-body-leading); letter-spacing: var(--ip-type-tracking); }
 .ip-panel-subtitle, .ip-form-help { font-size: var(--ip-type-12); line-height: var(--ip-body-leading); letter-spacing: var(--ip-type-tracking); }
 .ip-info-kpi { font-size: var(--ip-type-36); letter-spacing: var(--ip-type-tracking); line-height: var(--ip-heading-leading); }
 .ip-type-display { font-size: var(--ip-type-64); line-height: var(--ip-heading-leading); letter-spacing: var(--ip-type-tracking); }
