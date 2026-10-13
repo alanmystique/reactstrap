@@ -9,7 +9,7 @@ An **opt-in** design layer built directly into the InstaPay Reactstrap fork. Exi
 
 ## Live preview
 
-Once GitHub Pages is configured with **GitHub Actions**, the [InstaPay DS 2.1 Preview workflow](https://github.com/alanmystique/reactstrap/actions/workflows/instapay-preview.yml) builds and deploys Storybook at **https://alanmystique.github.io/reactstrap/** on pushes to this branch. This is a preview of the fork, not a published npm release.
+The [InstaPay DS 2.1 Preview workflow](https://github.com/alanmystique/reactstrap/actions/workflows/instapay-preview.yml) sends an update request whenever this branch changes. The [Pages publisher](https://github.com/alanmystique/reactstrap/actions/workflows/instapay-pages.yml) runs from `master`, checks out this development branch, builds Storybook and deploys it to **https://alanmystique.github.io/reactstrap/**. This arrangement respects the default-branch protection of GitHub Pages while keeping unfinished DS code outside `master`. This is a preview of the fork, not a published npm release.
 
 ## Use
 
