@@ -149,6 +149,9 @@
   border-radius: 4px;
 }
 .ip-field__action button:focus-visible { outline: 2px solid var(--ip-input-focus); outline-offset: 2px; }
+.ip-field__action svg { width: var(--ip-field-icon-size); height: var(--ip-field-icon-size); display: block; }
+/* Reactstrap's Bootstrap invalid icon would overlap custom trailing actions. */
+.ip-field .ip-field__input.form-control.is-invalid { background-image: none; }
 .ip-field__control--prefix .ip-field__prefix {
   display: inline-flex;
   align-items: center;
