@@ -51,7 +51,7 @@ When consuming **this repository from source** rather than a published package, 
 
 ## DS 2.1 typography
 
-Our 62 Figma text styles now have a matching opt-in `instapay/typography.css` implementation. See [TYPOGRAPHY.md](./TYPOGRAPHY.md) for sizes, weights, line heights, usage and mappings. The live Storybook has a separate interactive **Typography** page.
+Our 62 Figma text styles have been optically corrected for size-specific tracking and pixel leading. The canonical token mapping is `instapay/typography-spec.json`, with the matching opt-in `instapay/typography.css` implementation. See [TYPOGRAPHY.md](./TYPOGRAPHY.md) for sizes, weights, line heights, usage and mappings. The live Storybook has a separate interactive **Typography** page.
 
 ## Storybook design-system preview
 

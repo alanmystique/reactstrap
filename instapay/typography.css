@@ -1,23 +1,9 @@
-/**
- * InstaPay Design System 2.1 / Typography
- * Source: Figma ↪︎ Typography page 16:9, 62 local text styles.
- * Opt-in classes. Load the Inter font in your application, then import this
- * AFTER your baseline styles. Does not globally change Reactstrap components.
- *
- * Families:
- *  - Heading: Display 1-3 and H1-H7; 500/600, -3% tracking, 120% line height.
- *  - Body: Large/Medium/Small/XSmall/XXSmall; 400/500/600/700,
- *    -3% tracking, 150% line height.
- *  - Label: same sizes and weights as Body, -3% tracking, Figma AUTO line height.
- *  - Capital: Small/Xsmall; 500, 0% tracking, uppercase.
- *
- * Example:
- * <h1 class="ip-type ip-type--h1 ip-weight--semibold">Heading</h1>
- * <p class="ip-type ip-type--body-medium ip-weight--regular">Paragraph</p>
- */
+/* InstaPay DS 2.1 — optically corrected Inter typography.
+   All 62 Figma styles retain their names, sizes and original IDs.
+   Exact values: ./typography-spec.json. This stylesheet is opt-in. */
 :root {
   --ip-font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --ip-type-tracking: -0.03em;
+  --ip-type-tracking: -0.015em;
   --ip-heading-leading: 1.2;
   --ip-body-leading: 1.5;
   --ip-label-leading: normal;
@@ -40,56 +26,39 @@
   --ip-type-12: 12px;
   --ip-type-11: 11px;
 }
-.ip-type {
-  font-family: var(--ip-font-family);
-  letter-spacing: var(--ip-type-tracking);
-  font-weight: var(--ip-weight-medium);
-  margin: 0;
-}
-.ip-type--display-1, .ip-type--display-2, .ip-type--display-3,
-.ip-type--h1, .ip-type--h2, .ip-type--h3, .ip-type--h4,
-.ip-type--h5, .ip-type--h6, .ip-type--h7 {
-  line-height: var(--ip-heading-leading);
-  font-weight: var(--ip-weight-medium);
-}
-.ip-type--display-1 { font-size: var(--ip-type-64); }
-.ip-type--display-2 { font-size: var(--ip-type-56); }
-.ip-type--display-3 { font-size: var(--ip-type-48); }
-.ip-type--h1 { font-size: var(--ip-type-40); }
-.ip-type--h2 { font-size: var(--ip-type-36); }
-.ip-type--h3 { font-size: var(--ip-type-32); }
-.ip-type--h4 { font-size: var(--ip-type-28); }
-.ip-type--h5 { font-size: var(--ip-type-24); }
-.ip-type--h6 { font-size: var(--ip-type-20); }
-.ip-type--h7 { font-size: var(--ip-type-18); }
+.ip-type { font-family: var(--ip-font-family); font-weight: 500; margin: 0; }
 
-.ip-type--body-large, .ip-type--body-medium, .ip-type--body-small,
-.ip-type--body-xsmall, .ip-type--body-xxsmall {
-  line-height: var(--ip-body-leading);
-  font-weight: var(--ip-weight-regular);
-}
-.ip-type--label-large, .ip-type--label-medium, .ip-type--label-small,
-.ip-type--label-xsmall, .ip-type--label-xxsmall {
-  line-height: var(--ip-label-leading);
-  font-weight: var(--ip-weight-regular);
-}
-.ip-type--body-large, .ip-type--label-large { font-size: var(--ip-type-18); }
-.ip-type--body-medium, .ip-type--label-medium { font-size: var(--ip-type-16); }
-.ip-type--body-small, .ip-type--label-small { font-size: var(--ip-type-14); }
-.ip-type--body-xsmall, .ip-type--label-xsmall { font-size: var(--ip-type-12); }
-.ip-type--body-xxsmall, .ip-type--label-xxsmall { font-size: var(--ip-type-11); }
+/* HEADING optical line boxes and size-aware tracking */
+.ip-type.ip-type--display-1 { font-size: var(--ip-type-64); line-height: 72px; letter-spacing: -0.032em; }
+.ip-type.ip-type--display-2 { font-size: var(--ip-type-56); line-height: 64px; letter-spacing: -0.031em; }
+.ip-type.ip-type--display-3 { font-size: var(--ip-type-48); line-height: 56px; letter-spacing: -0.030em; }
+.ip-type.ip-type--h1 { font-size: var(--ip-type-40); line-height: 48px; letter-spacing: -0.028em; }
+.ip-type.ip-type--h2 { font-size: var(--ip-type-36); line-height: 44px; letter-spacing: -0.027em; }
+.ip-type.ip-type--h3 { font-size: var(--ip-type-32); line-height: 40px; letter-spacing: -0.026em; }
+.ip-type.ip-type--h4 { font-size: var(--ip-type-28); line-height: 36px; letter-spacing: -0.024em; }
+.ip-type.ip-type--h5 { font-size: var(--ip-type-24); line-height: 32px; letter-spacing: -0.022em; }
+.ip-type.ip-type--h6 { font-size: var(--ip-type-20); line-height: 28px; letter-spacing: -0.018em; }
+.ip-type.ip-type--h7 { font-size: var(--ip-type-18); line-height: 26px; letter-spacing: -0.016em; }
 
-/* Use any listed weight with Body or Label; heading styles use Medium/Semibold. */
-.ip-weight--regular { font-weight: 400; }
-.ip-weight--medium { font-weight: 500; }
-.ip-weight--semibold { font-weight: 600; }
-.ip-weight--bold { font-weight: 700; }
+/* BODY optical line boxes and size-aware tracking */
+.ip-type.ip-type--body-large { font-size: var(--ip-type-18); line-height: 28px; letter-spacing: -0.018em; }
+.ip-type.ip-type--body-medium { font-size: var(--ip-type-16); line-height: 24px; letter-spacing: -0.015em; }
+.ip-type.ip-type--body-small { font-size: var(--ip-type-14); line-height: 21px; letter-spacing: -0.010em; }
+.ip-type.ip-type--body-xsmall { font-size: var(--ip-type-12); line-height: 18px; letter-spacing: 0.000em; }
+.ip-type.ip-type--body-xxsmall { font-size: var(--ip-type-11); line-height: 17px; letter-spacing: 0.000em; }
 
-.ip-type--capital-small, .ip-type--capital-xsmall {
-  font-weight: var(--ip-weight-medium);
-  letter-spacing: 0;
-  line-height: normal;
-  text-transform: uppercase;
-}
-.ip-type--capital-small { font-size: var(--ip-type-14); }
-.ip-type--capital-xsmall { font-size: var(--ip-type-12); }
+/* LABEL optical line boxes and size-aware tracking */
+.ip-type.ip-type--label-large { font-size: var(--ip-type-18); line-height: 24px; letter-spacing: -0.015em; }
+.ip-type.ip-type--label-medium { font-size: var(--ip-type-16); line-height: 22px; letter-spacing: -0.013em; }
+.ip-type.ip-type--label-small { font-size: var(--ip-type-14); line-height: 20px; letter-spacing: -0.010em; }
+.ip-type.ip-type--label-xsmall { font-size: var(--ip-type-12); line-height: 17px; letter-spacing: 0.000em; }
+.ip-type.ip-type--label-xxsmall { font-size: var(--ip-type-11); line-height: 16px; letter-spacing: 0.000em; }
+
+/* CAPITAL optical line boxes and size-aware tracking */
+.ip-type.ip-type--capital-small { font-size: var(--ip-type-14); line-height: 20px; letter-spacing: 0.010em; text-transform: uppercase; }
+.ip-type.ip-type--capital-xsmall { font-size: var(--ip-type-12); line-height: 18px; letter-spacing: 0.015em; text-transform: uppercase; }
+
+.ip-type.ip-weight--regular { font-weight: 400; }
+.ip-type.ip-weight--medium { font-weight: 500; }
+.ip-type.ip-weight--semibold { font-weight: 600; }
+.ip-type.ip-weight--bold { font-weight: 700; }

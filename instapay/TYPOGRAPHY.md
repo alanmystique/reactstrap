@@ -1,54 +1,50 @@
-# InstaPay DS 2.1 — typography contract
+# InstaPay DS 2.1 optical typography
 
-**Source of truth:** [Figma Typography page](https://www.figma.com/design/1z3vwnijVhrhUoiKqHvdys/InstaPay-DS-2-0?node-id=16-9)
+**Source:** [Figma typography page](https://www.figma.com/design/1z3vwnijVhrhUoiKqHvdys/InstaPay-DS-2-0?node-id=16-9).
 
-Figma has **62 local text styles**. This opt-in CSS mirrors their roles, sizes, weights, tracking and line heights without changing Reactstrap's existing API.
+All **62 text styles** use size-aware line heights and tracking while retaining original Figma style IDs, font sizes, style names and weight variants. The canonical machine-readable values are in [typography-spec.json](./typography-spec.json), implemented as opt-in CSS in [typography.css](./typography.css).
 
-## Usage
+Large headlines get tighter lines, small headlines gain space, smaller body and labels lose excessive negative tracking, and all labels/capitals have explicit leading. The 14 legacy Zalando Sans annotations on the reference page were also aligned with Inter.
 
-Load **Inter** from an approved font source or local assets. Import Bootstrap first, then the typography system:
+**Styles:** Heading (10 sizes × Medium/Semibold), Body (5 sizes × Regular/Medium/Semibold/Bold), Label (5 sizes × same four weights), Capital (2 sizes × Medium).
+
+## Optical values
+
+| Role | Size (px) | Leading (px) | Tracking |
+| --- | ---: | ---: | ---: |
+| heading / Display 1 | 64 | 72 | -3.2% |
+| heading / Display 2 | 56 | 64 | -3.1% |
+| heading / Display 3 | 48 | 56 | -3% |
+| heading / H1 | 40 | 48 | -2.8% |
+| heading / H2 | 36 | 44 | -2.7% |
+| heading / H3 | 32 | 40 | -2.6% |
+| heading / H4 | 28 | 36 | -2.4% |
+| heading / H5 | 24 | 32 | -2.2% |
+| heading / H6 | 20 | 28 | -1.8% |
+| heading / H7 | 18 | 26 | -1.6% |
+| body / Large | 18 | 28 | -1.8% |
+| body / Medium | 16 | 24 | -1.5% |
+| body / Small | 14 | 21 | -1% |
+| body / XSmall | 12 | 18 | 0% |
+| body / XXSmall | 11 | 17 | 0% |
+| label / Large | 18 | 24 | -1.5% |
+| label / Medium | 16 | 22 | -1.3% |
+| label / Small | 14 | 20 | -1% |
+| label / XSmall | 12 | 17 | 0% |
+| label / XXSmall | 11 | 16 | 0% |
+| capital / Small | 14 | 20 | +1% |
+| capital / Xsmall | 12 | 18 | +1.5% |
+
+## Use in Reactstrap
 
 ```jsx
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'reactstrap/instapay/typography.css';
 
 <h1 className="ip-type ip-type--h1 ip-weight--semibold">Account activity</h1>
-<p className="ip-type ip-type--body-medium ip-weight--regular">
-  View the latest payments and account details.
-</p>
+<p className="ip-type ip-type--body-medium ip-weight--regular">Transactions at a glance.</p>
 <span className="ip-type ip-type--label-small ip-weight--medium">Recipient</span>
 <span className="ip-type ip-type--capital-xsmall">New</span>
 ```
 
-## Scale
-
-| Family | Sizes (px) | Allowed weights | Tracking | Line height |
-| --- | --- | --- | --- | --- |
-| Display 1 / 2 / 3 | 64, 56, 48 | 500, 600 | -3% | 120% |
-| Heading H1–H7 | 40, 36, 32, 28, 24, 20, 18 | 500, 600 | -3% | 120% |
-| Body Large to XXSmall | 18, 16, 14, 12, 11 | 400, 500, 600, 700 | -3% | 150% |
-| Label Large to XXSmall | 18, 16, 14, 12, 11 | 400, 500, 600, 700 | -3% | auto (normal) |
-| Capital Small / Xsmall | 14, 12 | 500 | 0% | auto (normal) |
-
-Use `ip-type--display-1`, `ip-type--display-2`, `ip-type--display-3`, `ip-type--h1` through `ip-type--h7`, `ip-type--body-large` through `ip-type--body-xxsmall`, `ip-type--label-large` through `ip-type--label-xxsmall`, and `ip-type--capital-small`/`ip-type--capital-xsmall`.
-
-Weight modifiers: `ip-weight--regular`, `ip-weight--medium`, `ip-weight--semibold`, `ip-weight--bold`.
-
-## Alignment and corrections
-
-Four existing Figma styles were normalized in place, preserving style IDs and downstream references:
-- `Heading/H3/Medium`: tracking 0 → -3%
-- `Heading/H7/Semibold`: tracking 0 → -3%
-- `Body/Large/Semibold`: tracking 0 → -3%
-- `Body/Small/Regular`: line height AUTO → 150%
-
-This produces consistent specifications across all 62 Figma styles. The [interactive Storybook Typography page](https://alanmystique.github.io/reactstrap/) uses the same CSS tokens.
-
-## Implementation notes
-
-- `instapay/typography.css` is **opt-in and suitable for integration**; it does not globally restyle Bootstrap text.
-- `instapay/preview.css` is **storybook-only**; it aligns sample screens with the same typography choices.
-- Heading line height is a CSS multiplier of 1.2; body line height is 1.5. Label `AUTO` maps to browser `normal`.
-- The default `ip-type` weight is Medium. Set a weight modifier for body/label types where required.
-- Headings with Medium/Semibold follow Figma; do not infer unsupported heading Regular/Bold variants.
-- Avoid using 11px text for essential customer-facing information; follow accessibility and contrast guidelines.
+This is an **opt-in type system**, not a global override of Reactstrap. In Storybook, the optical comparison control previews the previous uniform -3% tracking and proportional leading without changing source styles. Always validate long-form and multilingual content separately, and avoid using tiny text for essential interactions.

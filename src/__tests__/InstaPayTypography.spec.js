@@ -1,35 +1,33 @@
 import fs from 'fs';
 import path from 'path';
+import spec from '../../instapay/typography-spec.json';
 
-/**
- * Regression guard for Figma typography classes.
- * The Storybook preview intentionally styles ordinary paragraph copy, but
- * those selectors must not override the opt-in .ip-type--display-1 / H1 / etc.
- */
-describe('InstaPay typography preview cascade', () => {
+describe('InstaPay optical typography', () => {
+  const css = fs.readFileSync(path.resolve(__dirname, '../../instapay/typography.css'), 'utf8');
   const preview = fs.readFileSync(path.resolve(__dirname, '../../instapay/preview.css'), 'utf8');
-  const typography = fs.readFileSync(path.resolve(__dirname, '../../instapay/typography.css'), 'utf8');
+  const families = ['heading', 'body', 'label', 'capital'];
 
-  it('excludes type specimens from generic section paragraph rules', () => {
-    expect(preview).not.toMatch(/\.ip-section\s+p\s*\{/);
-    expect(preview.match(/\.ip-section\s+p:not\(\.ip-type\)\s*\{/g)).toHaveLength(2);
+  it('maps exactly 62 Figma variants and all 22 unique roles', () => {
+    expect(families.reduce((n, f) => n + spec[f].length * spec.weights[f].length, 0)).toBe(62);
+    expect(families.reduce((n, f) => n + spec[f].length, 0)).toBe(22);
   });
 
-  it('maintains distinct Figma heading scales', () => {
-    [
-      ['display-1', 64],
-      ['display-2', 56],
-      ['display-3', 48],
-      ['h1', 40],
-      ['h2', 36],
-      ['h3', 32],
-      ['h4', 28],
-      ['h5', 24],
-      ['h6', 20],
-      ['h7', 18],
-    ].forEach(([name, pixels]) => {
-      expect(typography).toContain(`--ip-type-${pixels}: ${pixels}px`);
-      expect(typography).toContain(`.ip-type--${name} { font-size: var(--ip-type-${pixels}); }`);
-    });
+  it('keeps every optical leading and tracking value in the production stylesheet', () => {
+    families.forEach((f) => spec[f].forEach(({ slug, size, lineHeight, trackingPercent }) => {
+      const name = f === 'heading' ? slug : `${f}-${slug}`;
+      const em = (trackingPercent / 100).toFixed(3).replace(/^-0\.000$/, '0');
+      expect(css).toContain(`.ip-type.ip-type--${name} { font-size: var(--ip-type-${size}); line-height: ${lineHeight}px; letter-spacing: ${em}em;`);
+    }));
+  });
+
+  it('prevents generic preview copy from overriding .ip-type specimens', () => {
+    expect(preview).not.toMatch(/\.ip-section\s+p\s*\{/);
+    expect(preview).toContain('.ip-section p:not(.ip-type)');
+  });
+
+  it('keeps critical small body and label tracking legible', () => {
+    ['body', 'label'].forEach(f => spec[f].filter(x => x.size <= 12).forEach(x => {
+      expect(x.trackingPercent).toBeGreaterThanOrEqual(0);
+    }));
   });
 });

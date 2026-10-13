@@ -311,3 +311,25 @@ body.sb-show-main, .sbdocs, .sbdocs-wrapper, .ip-lab {
   .ip-type-gallery-row { display: flex; flex-direction: column; gap: 6px; }
   .ip-type-gallery-rule { grid-column: span 1; }
 }
+
+/* DS 2.1 Optical Typography / Storybook-only layer.
+   These selectors spare .ip-type named specimens. */
+.ip-hero h1 { font-size: 64px; line-height: 72px; letter-spacing: -0.032em; }
+.ip-hero p { font-size: 16px; line-height: 24px; letter-spacing: -0.015em; }
+.ip-section h2 { font-size: 24px; line-height: 32px; letter-spacing: -0.022em; }
+.ip-panel-header h3 { font-size: 18px; line-height: 26px; letter-spacing: -0.016em; }
+.ip-section p:not(.ip-type) { font-size: 14px; line-height: 21px; letter-spacing: -0.01em; }
+.ip-panel-subtitle, .ip-form-help { font-size: 12px; line-height: 18px; letter-spacing: 0; }
+.ip-info-kpi { font-size: 36px; line-height: 44px; letter-spacing: -0.027em; }
+.ip-type-display { font-size: 64px; line-height: 72px; letter-spacing: -0.032em; }
+.ip-type-title { font-size: 28px; line-height: 36px; letter-spacing: -0.024em; }
+.ip-type-body { font-size: 14px; line-height: 21px; letter-spacing: -0.01em; }
+.ip-type-small { font-size: 12px; line-height: 18px; letter-spacing: 0; }
+.ip-activity-name { font-size: 12px; line-height: 18px; letter-spacing: 0; }
+.ip-activity-time, .ip-info-label, .ip-lab-footer { font-size: 11px; line-height: 17px; letter-spacing: 0; }
+.ip-lab-status { font-size: 11px; line-height: 16px; letter-spacing: 0; }
+.ip-eyebrow { font-size: 12px; line-height: 18px; letter-spacing: 0.015em; }
+.ip-type-gallery-meta, .ip-type-gallery-note { font-size: 12px; line-height: 18px; letter-spacing: 0; }
+@media (max-width: 640px) {
+  .ip-hero h1, .ip-type-display { font-size: 40px; line-height: 48px; letter-spacing: -0.028em; }
+}
