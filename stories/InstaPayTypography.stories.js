@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Input, Label } from '../src';
 
 export default {
@@ -48,6 +49,15 @@ function TypographicRow({ label, cssClass, weight, pixels, text, caption }) {
     </React.Fragment>
   );
 }
+
+TypographicRow.propTypes = {
+  label: PropTypes.string.isRequired,
+  cssClass: PropTypes.string.isRequired,
+  weight: PropTypes.string.isRequired,
+  pixels: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  caption: PropTypes.string.isRequired,
+};
 
 export function TypeScale() {
   const [headingWeight, setHeadingWeight] = useState('medium');
