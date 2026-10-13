@@ -6,12 +6,10 @@ import { InstaPayButton } from '..';
 describe('InstaPayButton (DS 2.1)', () => {
   it('renders the primary medium style by default', () => {
     render(<InstaPayButton>Continue</InstaPayButton>);
-    expect(screen.getByRole('button', { name: 'Continue' })).toHaveClass(
-      'ip-btn',
-      'ip-btn--primary',
-      'ip-btn--medium',
-      'btn',
-    );
+    const className = screen.getByRole('button', { name: 'Continue' }).className;
+    ['ip-btn', 'ip-btn--primary', 'ip-btn--medium', 'btn'].forEach((name) => {
+      expect(className.split(' ')).toContain(name);
+    });
   });
 
   it('maps Figma variants and sizes without Bootstrap size classes', () => {
@@ -21,8 +19,10 @@ describe('InstaPayButton (DS 2.1)', () => {
       </InstaPayButton>,
     );
     const button = screen.getByRole('button', { name: 'Cancel' });
-    expect(button).toHaveClass('ip-btn--secondary', 'ip-btn--xsmall');
-    expect(button).not.toHaveClass('btn-sm', 'btn-lg');
+    expect(button.className).toContain('ip-btn--secondary');
+    expect(button.className).toContain('ip-btn--xsmall');
+    expect(button.className).not.toContain('btn-sm');
+    expect(button.className).not.toContain('btn-lg');
   });
 
   it('keeps icon-only accessible with aria-label', () => {
@@ -30,8 +30,8 @@ describe('InstaPayButton (DS 2.1)', () => {
       <InstaPayButton iconOnly aria-label="Add payment" startIcon={<svg />}/>,
     );
     const button = screen.getByRole('button', { name: 'Add payment' });
-    expect(button).toHaveClass('ip-btn--icon-only');
-    expect(button.querySelector('.ip-btn__icon')).toHaveAttribute('aria-hidden', 'true');
+    expect(button.className).toContain('ip-btn--icon-only');
+    expect(button.querySelector('.ip-btn__icon').getAttribute('aria-hidden')).toBe('true');
   });
 
   it('keeps Reactstrap disabled behavior', () => {
@@ -42,14 +42,14 @@ describe('InstaPayButton (DS 2.1)', () => {
       </InstaPayButton>,
     );
     const button = screen.getByRole('button', { name: 'Disabled' });
-    expect(button).toBeDisabled();
+    expect(button.disabled).toBe(true);
     user.click(button);
     expect(onClick).not.toHaveBeenCalled();
   });
 
   it('defaults to type button to avoid accidental form submission', () => {
     render(<InstaPayButton>Save</InstaPayButton>);
-    expect(screen.getByRole('button', { name: 'Save' })).toHaveAttribute('type', 'button');
+    expect(screen.getByRole('button', { name: 'Save' }).getAttribute('type')).toBe('button');
   });
 
   it('preserves native submit and custom class names', () => {
@@ -58,7 +58,7 @@ describe('InstaPayButton (DS 2.1)', () => {
         Submit
       </InstaPayButton>,
     );
-    expect(screen.getByRole('button', { name: 'Submit' })).toHaveClass('my-class');
-    expect(screen.getByRole('button', { name: 'Submit' })).toHaveAttribute('type', 'submit');
+    expect(screen.getByRole('button', { name: 'Submit' }).className).toContain('my-class');
+    expect(screen.getByRole('button', { name: 'Submit' }).getAttribute('type')).toBe('submit');
   });
 });
