@@ -1,4 +1,6 @@
 import React from 'react';
+import fs from 'fs';
+import path from 'path';
 import { render, screen } from '@testing-library/react';
 import { InstaPayTextField } from '..';
 
@@ -9,6 +11,12 @@ const personIcon = (
 );
 
 describe('InstaPayTextField (DS 2.1)', () => {
+  it('uses the master Figma 10px optical corner radius for all input states', () => {
+    const styles = fs.readFileSync(path.resolve(__dirname, '../../instapay/inputs.css'), 'utf8');
+    expect(styles).toContain('--ip-input-radius: 10px');
+    expect(styles).toContain('border-radius: var(--ip-input-radius)');
+  });
+
   it('associates the persistent label with the native control', () => {
     render(<InstaPayTextField id="recipient" label="Recipient" hint="Check the details" />);
     const input = screen.getByRole('textbox', { name: 'Recipient' });

@@ -54,7 +54,7 @@ export function OpticalTextFields() {
         <div>
           <span className="ip-eyebrow">Component family · 30 variants</span>
           <h2>Carefully spaced. Effortlessly clear.</h2>
-          <p>Icons sit at 12px. Icon-free text starts at 16px. Every field keeps its meaning visible.</p>
+          <p>Shared 10px corners. Icons sit at 12px; icon-free text starts at 16px. Every field keeps its meaning visible.</p>
         </div>
         <span className="ip-section-meta">Reactstrap Input · native functionality</span>
       </div>

@@ -63,7 +63,7 @@ import 'reactstrap/instapay/inputs.css';
 <InstaPayTextField id="phone" label="Phone" type="tel" prefix={<CountryCodeSelector />} />
 ```
 
-Large = 48px, Medium = 40px, Multiline = 120px. Label-to-input gap = 12px, input-to-helper gap = 8px. The end action can be an accessible password visibility button. For payment and identity fields, labels remain persistent; floating labels are not the default.
+Large = 48px, Medium = 40px, Multiline = 120px. **All 30 input variants use a 10px outer corner radius**, taken from the updated main Figma component (`131:2127`). Phone number prefixes and editable sections share the rounded outer control without interior seam rounding. Label-to-input gap = 12px, input-to-helper gap = 8px. The end action can be an accessible password visibility button. For payment and identity fields, labels remain persistent; floating labels are not the default.
 
 ## DS 2.1 typography
 

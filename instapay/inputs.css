@@ -5,9 +5,10 @@
  * With leading icon: icon visible edge 12px from border, text 44px (large)
  * or 42px (medium). Without icon: text inset 16px.
  * Phone prefix starts at 12px; editable number starts 16px after prefix.
- * Large height 48px, medium 40px, multiline 120px.
+ * Large height 48px, medium 40px, multiline 120px; all use a 10px radius.
  */
 :root {
+  --ip-input-radius: 10px;
   --ip-input-outline: #eff1f6;
   --ip-input-hover-outline: #e1e5ee;
   --ip-input-focus: #5926f0;
@@ -69,7 +70,7 @@
   gap: 12px;
   background: #fff;
   border: 1px solid var(--ip-input-outline);
-  border-radius: 6px;
+  border-radius: var(--ip-input-radius);
   transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
 }
 .ip-field__control--leading { padding-left: 12px; }

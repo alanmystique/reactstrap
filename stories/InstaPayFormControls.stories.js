@@ -16,7 +16,7 @@ export function InputsAndSelection() {
   return (
     <main className="ip-lab">
       <header className="ip-lab-topline"><div className="ip-lab-brand"><span className="ip-lab-mark">i</span>InstaPay <span className="ip-lab-slash">/</span> <span className="ip-lab-subbrand">Form Controls</span></div><span className="ip-lab-status">Interactive prototype</span></header>
-      <div className="ip-section-top"><div><span className="ip-eyebrow">Fields & controls</span><h2>Focus on the task.</h2><p>40px medium inputs, 48px large inputs, 6px radius and brand-purple focus state.</p></div></div>
+      <div className="ip-section-top"><div><span className="ip-eyebrow">Fields & controls</span><h2>Focus on the task.</h2><p>40px medium inputs, 48px large inputs, 10px optical radius and brand-purple focus state.</p></div></div>
       <div className="ip-grid">
         <section className="ip-panel ip-col-6">
           <div className="ip-panel-header"><h3>Text inputs</h3><span className="ip-pill">Figma dimensions</span></div>
