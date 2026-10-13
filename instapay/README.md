@@ -49,6 +49,12 @@ When consuming **this repository from source** rather than a published package, 
 - Typography: Inter Medium, -3% tracking.
 - Icons: use existing Phosphor Outline-Regular assets from the application. This fork does not bundle an icon library.
 
+## Storybook design-system preview
+
+The live site uses `instapay/preview.css` and the branded Storybook manager to present **InstaPay first**. The preview includes interactive stories for the DS foundations, Buttons, Forms, Navigation and Feedback. The original Reactstrap stories remain under Components and Reactstrap Reference.
+
+**Production scope:** `InstaPayButton` and `instapay/ds-2.1.css` are the opt-in component implementation. `instapay/preview.css` is **Storybook-only**: it skins Bootstrap-based reference components so the rest of the DS can be visually explored without silently changing the Reactstrap API or declaring unfinished Figma families complete.
+
 ## Important integration notes
 
 - `InstaPayButton` is opt-in; the original `Button` API is not changed.

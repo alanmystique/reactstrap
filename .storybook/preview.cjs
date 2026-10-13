@@ -1,18 +1,22 @@
+import '../instapay/ds-2.1.css';
+import '../instapay/preview.css';
+
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     hideNoControlsWarning: true,
-    matchers: {
-      date: /Date$/
-    },
+    matchers: { date: /Date$/ },
   },
   options: {
     storySort: {
-      order: ['Home', ['Installation', 'GitHub', 'Upgrading', 'Themes'], '*']
-    }
+      order: [
+        'InstaPay DS 2.1',
+        ['Overview', 'Foundations', 'Buttons', 'Form Controls', 'Navigation', 'Feedback'],
+        'Components',
+        'Reactstrap Reference',
+        '*',
+      ],
+    },
   },
-  viewMode: 'docs',
-  previewTabs: {
-    canvas: { hidden: true },
-  },
-}
+  viewMode: 'story',
+};
