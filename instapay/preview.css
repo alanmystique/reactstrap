@@ -250,3 +250,64 @@ textarea.form-control { min-height: 120px; padding: 12px; }
 @media (prefers-reduced-motion: reduce) {
   .ip-lab *, .ip-lab *::before, .ip-lab *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* DS 2.1 typography: align the Storybook presentation with Figma text styles.
+ * Large marketing-specific typography may still be responsive, but its desktop
+ * values now use the actual Display and Heading scales.
+ */
+body.sb-show-main, .sbdocs, .sbdocs-wrapper, .ip-lab {
+  font-family: var(--ip-font-family);
+}
+.ip-lab h1, .ip-lab h2, .ip-lab h3, .ip-lab h4,
+.ip-lab h5, .ip-lab h6 {
+  letter-spacing: var(--ip-type-tracking);
+  line-height: var(--ip-heading-leading);
+}
+.ip-hero h1 {
+  font-size: var(--ip-type-64);
+  line-height: var(--ip-heading-leading);
+  letter-spacing: var(--ip-type-tracking);
+}
+.ip-hero p {
+  font-size: var(--ip-type-16);
+  line-height: var(--ip-body-leading);
+  letter-spacing: var(--ip-type-tracking);
+}
+.ip-section h2 {
+  font-size: var(--ip-type-24);
+  line-height: var(--ip-heading-leading);
+  letter-spacing: var(--ip-type-tracking);
+}
+.ip-panel-header h3 {
+  font-size: var(--ip-type-18);
+  line-height: var(--ip-heading-leading);
+  letter-spacing: var(--ip-type-tracking);
+}
+.ip-section p { font-size: var(--ip-type-14); line-height: var(--ip-body-leading); letter-spacing: var(--ip-type-tracking); }
+.ip-panel-subtitle, .ip-form-help { font-size: var(--ip-type-12); line-height: var(--ip-body-leading); letter-spacing: var(--ip-type-tracking); }
+.ip-info-kpi { font-size: var(--ip-type-36); letter-spacing: var(--ip-type-tracking); line-height: var(--ip-heading-leading); }
+.ip-type-display { font-size: var(--ip-type-64); line-height: var(--ip-heading-leading); letter-spacing: var(--ip-type-tracking); }
+.ip-type-title { font-size: var(--ip-type-28); line-height: var(--ip-heading-leading); letter-spacing: var(--ip-type-tracking); }
+.ip-type-body { font-size: var(--ip-type-14); line-height: var(--ip-body-leading); letter-spacing: var(--ip-type-tracking); }
+.ip-type-small { font-size: var(--ip-type-12); line-height: var(--ip-body-leading); letter-spacing: var(--ip-type-tracking); }
+.ip-eyebrow, .ip-variant-head { letter-spacing: 0; }
+.ip-type-line { gap: 18px; }
+.ip-type-line > :first-child { min-width: 0; overflow-wrap: anywhere; }
+.ip-code-hint { flex: none; }
+.ip-type-gallery-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.ip-type-gallery-grid { display: grid; grid-template-columns: minmax(120px, 190px) minmax(0,1fr); gap: 18px 24px; align-items: baseline; }
+.ip-type-gallery-row { display: contents; }
+.ip-type-gallery-rule { grid-column: span 2; border-top: 1px solid var(--ip-outline); }
+.ip-type-gallery-meta { color: var(--ip-ink-muted); font-size: 12px; line-height: 1.5; }
+.ip-type-gallery-sample { min-width: 0; overflow-wrap: anywhere; }
+.ip-type-gallery-note { margin-top: 9px; color: var(--ip-ink-muted); font-size: 12px; line-height: 1.5; }
+.ip-type-example { margin-bottom: 16px; max-width: 660px; }
+.ip-type-example:last-child { margin-bottom: 0; }
+.ip-type-gallery-input { max-width: 500px; }
+@media (max-width: 640px) {
+  .ip-hero h1 { font-size: var(--ip-type-40); }
+  .ip-type-display { font-size: var(--ip-type-40); }
+  .ip-type-gallery-grid { grid-template-columns: minmax(0,1fr); gap: 8px; }
+  .ip-type-gallery-row { display: flex; flex-direction: column; gap: 6px; }
+  .ip-type-gallery-rule { grid-column: span 1; }
+}

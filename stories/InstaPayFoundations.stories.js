@@ -39,10 +39,10 @@ export function PaletteAndTypography() {
       <section className="ip-section">
         <div className="ip-section-top"><div><span className="ip-eyebrow">Typography</span><h2>Inter · Soft precision</h2><p>Purposeful density and restrained tracking.</p></div></div>
         <div className="ip-panel">
-          <div className="ip-type-line"><span className="ip-type-display">Design that feels effortless.</span><span className="ip-code-hint">Display / -7.5% preview</span></div>
-          <div className="ip-type-line"><span className="ip-type-title">Clear, careful, considered.</span><span className="ip-code-hint">Heading</span></div>
-          <div className="ip-type-line"><span className="ip-type-body">Make every interaction feel precise and intuitive.</span><span className="ip-code-hint">Inter Medium / -3%</span></div>
-          <div className="ip-type-line"><span className="ip-type-small">Labels, captions and support information</span><span className="ip-code-hint">Caption</span></div>
+          <div className="ip-type-line"><span className="ip-type ip-type--display-1 ip-weight--medium" style={{ color: '#22106b' }}>Design that feels effortless.</span><span className="ip-code-hint">Display 1 / 64px / -3%</span></div>
+          <div className="ip-type-line"><span className="ip-type ip-type--h4 ip-weight--semibold" style={{ color: '#22106b' }}>Clear, careful, considered.</span><span className="ip-code-hint">H4 / 28px / 120%</span></div>
+          <div className="ip-type-line"><span className="ip-type ip-type--body-small ip-weight--medium">Make every interaction feel precise and intuitive.</span><span className="ip-code-hint">Body / 14px / 150%</span></div>
+          <div className="ip-type-line"><span className="ip-type ip-type--label-xsmall ip-weight--medium">Labels, captions and support information</span><span className="ip-code-hint">Label / 12px / auto</span></div>
         </div>
       </section>
       <p className="ip-workflow-note" style={{ marginTop: 26 }}>These are the shared visual foundations of the preview. Only finalized DS component specifications are considered production-ready.</p>

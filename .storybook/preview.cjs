@@ -1,4 +1,5 @@
 import '../instapay/ds-2.1.css';
+import '../instapay/typography.css';
 import '../instapay/preview.css';
 
 export const parameters = {
@@ -11,7 +12,7 @@ export const parameters = {
     storySort: {
       order: [
         'InstaPay DS 2.1',
-        ['Overview', 'Foundations', 'Buttons', 'Form Controls', 'Navigation', 'Feedback'],
+        ['Overview', 'Foundations', 'Typography', 'Buttons', 'Form Controls', 'Navigation', 'Feedback'],
         'Components',
         'Reactstrap Reference',
         '*',
