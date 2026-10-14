@@ -77,7 +77,7 @@ export function OpticalPlayground() {
     try {
       await navigator.clipboard.writeText(tokens);
       setCopyStatus('Copied! You can paste these values here for review.');
-    } catch (error) {
+    } catch {
       setCopyStatus('Clipboard blocked by browser. Select and copy the CSS below instead.');
     }
   };
