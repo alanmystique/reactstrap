@@ -1,0 +1,156 @@
+/**
+ * InstaPay DS 2.1 / proposed Activity Row spacing treatment.
+ * Storybook preview only — sizes remain experimental until visually approved.
+ * Do not use these classes as a global override of Reactstrap.
+ *
+ * Structural rule: avatar and title/subtitle stack are centered as units.
+ * The title/subtitle gap is explicit; no <br> or incidental inline leading.
+ */
+:root {
+  --ip-space-1: 4px;
+  --ip-space-2: 8px;
+  --ip-space-3: 12px;
+  --ip-space-4: 16px;
+  --ip-space-5: 24px;
+  --ip-space-6: 32px;
+  --ip-activity-avatar: 36px;
+  --ip-activity-column-gap: 12px;
+  --ip-activity-copy-gap: 1px;
+  --ip-activity-row-inset: 12px;
+  --ip-activity-optical-shift: -0.25px;
+  --ip-spacing-card-inset: 22px;
+}
+.ip-activity-panel {
+  padding: var(--ip-spacing-card-inset);
+}
+.ip-mini-activity li.ip-activity-row,
+.ip-spacing-lab li.ip-activity-row {
+  display: grid;
+  grid-template-columns: var(--ip-activity-avatar) minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: var(--ip-activity-column-gap);
+  padding: var(--ip-activity-row-inset) 0;
+  border-bottom: 1px solid var(--ip-outline, #eff1f6);
+  min-width: 0;
+}
+.ip-mini-activity li.ip-activity-row:last-child,
+.ip-spacing-lab li.ip-activity-row:last-child { border-bottom: 0; }
+.ip-activity-row .ip-avatar {
+  display: grid;
+  place-items: center;
+  width: var(--ip-activity-avatar);
+  height: var(--ip-activity-avatar);
+  border-radius: 10px;
+  flex: none;
+  font: 600 12px/16px Inter, system-ui, sans-serif;
+  color: #5926f0;
+  background: #f2eeff;
+}
+.ip-activity-row .ip-activity-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--ip-activity-copy-gap);
+  min-width: 0;
+  transform: translateY(var(--ip-activity-optical-shift));
+}
+.ip-activity-row .ip-activity-name {
+  display: block;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: -0.008em;
+  color: #1b1f2a;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.ip-activity-row .ip-activity-time {
+  display: block;
+  color: #697184;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.ip-activity-row .ip-activity-amount {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: -0.008em;
+  color: #22106b;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+.ip-spacing-lab {
+  --ip-outline: #eff1f6;
+  --ip-activity-avatar: 36px;
+  --ip-activity-column-gap: 12px;
+  --ip-activity-copy-gap: 1px;
+  --ip-activity-row-inset: 12px;
+  --ip-activity-optical-shift: -0.25px;
+  --ip-spacing-card-inset: 22px;
+  padding: clamp(18px, 3.5vw, 50px);
+  min-height: 100vh;
+  background: #f8f9fc;
+  color: #1b1f2a;
+  font-family: Inter, system-ui, sans-serif;
+}
+.ip-spacing-lab * { box-sizing: border-box; }
+.ip-spacing-lab__shell { max-width: 1250px; margin: 0 auto; }
+.ip-spacing-lab__header { display:flex; align-items:center; justify-content: space-between; gap:16px; margin-bottom: 30px; }
+.ip-spacing-lab__brand { display:flex; align-items:center; gap:9px; font-size:14px; font-weight:600; }
+.ip-spacing-lab__brand-mark { background:#5926f0; color:white; border-radius:9px; width:32px; height:32px; display:grid; place-items:center; font-size:19px; }
+.ip-spacing-lab__muted { color:#778092; font-size:11px; line-height:17px; }
+.ip-spacing-lab__eyebrow { font-size:11px; letter-spacing:.09em; text-transform:uppercase; font-weight:600; color:#5926f0; }
+.ip-spacing-lab h1 { font-size: clamp(27px,3vw,38px); font-weight:600; line-height:1.2; letter-spacing:-.03em; margin:11px 0; color:#22106b; }
+.ip-spacing-lab__intro { color:#697184; font-size:13px; line-height:21px; max-width:670px; margin:0 0 27px; }
+.ip-spacing-lab__grid { display:grid; grid-template-columns: minmax(260px,340px) minmax(0,1fr); gap:16px; align-items:start; }
+.ip-spacing-lab__card { min-width:0; padding:var(--ip-spacing-card-inset); border:1px solid #e9ebf1; border-radius:16px; background:white; }
+.ip-spacing-lab__card--controls { padding:24px; }
+.ip-spacing-lab__card-title { font-size:16px; font-weight:600; line-height:22px; margin:0 0 6px; letter-spacing:-.02em; }
+.ip-spacing-lab__caption { color:#778092; font-size:12px; line-height:18px; margin:0 0 23px; }
+.ip-spacing-lab__label-row { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:7px; }
+.ip-spacing-lab__label { font-size:12px; font-weight:500; color:#313a50; }
+.ip-spacing-lab__value { color:#5926f0; border-radius:6px; background:#f3efff; font:11px/17px ui-monospace,Consolas,monospace; padding:4px 7px; }
+.ip-spacing-lab__control { margin-bottom:20px; }
+.ip-spacing-lab__range { width:100%; height:20px; cursor:pointer; accent-color:#5926f0; }
+.ip-spacing-lab__extremes { display:flex; justify-content:space-between; color:#9199a8; font-size:10px; }
+.ip-spacing-lab__actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:22px; }
+.ip-spacing-lab__button { font-family:inherit; font-size:12px; font-weight:600; background:white; color:#4b5263; border:1px solid #e2e5ef; border-radius:8px; padding:9px 12px; cursor:pointer; }
+.ip-spacing-lab__button--primary { background:#5926f0; color:white; border-color:#5926f0; }
+.ip-spacing-lab__button:focus-visible { outline:2px solid #5926f0; outline-offset:2px; }
+.ip-spacing-lab__divider { height:1px; background:#eff1f6; margin:24px 0; }
+.ip-spacing-lab__sample-heading { font-weight:600; font-size:13px; line-height:18px; letter-spacing:-.01em; margin:0 0 8px; }
+.ip-spacing-lab__sample-caption { font-size:11px; color:#828a9b; line-height:17px; margin:0 0 18px; }
+.ip-spacing-lab__list { list-style:none; padding:0; margin:0; }
+.ip-spacing-lab__legacy-list li {
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding:13px 0; border-bottom:1px solid #eff1f6;
+}
+.ip-spacing-lab__legacy-list li:last-child { border-bottom:0; }
+.ip-spacing-lab__legacy-content { display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
+.ip-spacing-lab__legacy-avatar { width:34px; height:34px; border-radius:10px; display:inline-grid; place-items:center; background:#f2eeff; color:#5926f0; font-size:12px; font-weight:600; }
+.ip-spacing-lab__legacy-title { font-size:12px; font-weight:600; line-height:18px; color:#1b1f2a; }
+.ip-spacing-lab__legacy-subtitle { font-size:11px; font-weight:400; line-height:17px; color:#697184; }
+.ip-spacing-lab__legacy-amount { font-size:12px; font-weight:600; color:#22106b; }
+.ip-spacing-lab__guides .ip-activity-row { background:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,rgba(89,38,240,.035) 3px,rgba(89,38,240,.035) 4px); }
+.ip-spacing-lab__guides .ip-activity-row .ip-avatar { outline:1px dashed rgba(89,38,240,.35); outline-offset:0; }
+.ip-spacing-lab__guides .ip-activity-row .ip-activity-copy { outline:1px dashed rgba(89,38,240,.35); }
+.ip-spacing-lab__guides .ip-activity-row .ip-activity-name,
+.ip-spacing-lab__guides .ip-activity-row .ip-activity-time { background:rgba(89,38,240,.055); }
+.ip-spacing-lab__chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:19px; }
+.ip-spacing-lab__chip { font:11px/17px ui-monospace,Consolas,monospace; color:#595f77; background:#f7f8fb; border:1px solid #e7e9f0; border-radius:7px; padding:6px 9px; }
+.ip-spacing-lab__code { margin-top:22px; display:block; width:100%; min-height:190px; resize:vertical; padding:13px; background:#f8f9fc; border:1px solid #e5e7ef; color:#566075; border-radius:9px; font:11px/1.65 ui-monospace,Consolas,monospace; }
+.ip-spacing-lab__status { display:block; min-height:20px; margin-top:8px; font-size:11px; color:#697184; }
+.ip-spacing-lab__note { background:#f3efff; border:1px solid #e5ddff; border-radius:9px; color:#63587e; padding:12px; line-height:1.7; font-size:11px; margin:24px 0 0; }
+.ip-spacing-lab__text-settings { display:flex; align-items:center; gap:9px; margin-top:12px; font-size:12px; }
+.ip-spacing-lab__text-settings input { width:16px; height:16px; accent-color:#5926f0; }
+@media(max-width:920px){.ip-spacing-lab__grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:540px){.ip-spacing-lab__grid{gap:12px}.ip-spacing-lab__legacy-list li{flex-wrap:wrap}.ip-spacing-lab .ip-activity-row{grid-template-columns:var(--ip-activity-avatar) minmax(0,1fr)}.ip-spacing-lab .ip-activity-amount{grid-column:2;text-align:left}}

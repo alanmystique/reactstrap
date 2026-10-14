@@ -1,0 +1,64 @@
+/* InstaPay DS 2.1 — optically corrected Inter typography.
+   All 62 Figma styles retain their names, sizes and original IDs.
+   Exact values: ./typography-spec.json. This stylesheet is opt-in. */
+:root {
+  --ip-font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ip-type-tracking: -0.015em;
+  --ip-heading-leading: 1.2;
+  --ip-body-leading: 1.5;
+  --ip-label-leading: normal;
+  --ip-weight-regular: 400;
+  --ip-weight-medium: 500;
+  --ip-weight-semibold: 600;
+  --ip-weight-bold: 700;
+  --ip-type-64: 64px;
+  --ip-type-56: 56px;
+  --ip-type-48: 48px;
+  --ip-type-40: 40px;
+  --ip-type-36: 36px;
+  --ip-type-32: 32px;
+  --ip-type-28: 28px;
+  --ip-type-24: 24px;
+  --ip-type-20: 20px;
+  --ip-type-18: 18px;
+  --ip-type-16: 16px;
+  --ip-type-14: 14px;
+  --ip-type-12: 12px;
+  --ip-type-11: 11px;
+}
+.ip-type { font-family: var(--ip-font-family); font-weight: 500; margin: 0; }
+
+/* HEADING optical line boxes and size-aware tracking */
+.ip-type.ip-type--display-1 { font-size: var(--ip-type-64); line-height: 72px; letter-spacing: -0.032em; }
+.ip-type.ip-type--display-2 { font-size: var(--ip-type-56); line-height: 64px; letter-spacing: -0.031em; }
+.ip-type.ip-type--display-3 { font-size: var(--ip-type-48); line-height: 56px; letter-spacing: -0.030em; }
+.ip-type.ip-type--h1 { font-size: var(--ip-type-40); line-height: 48px; letter-spacing: -0.028em; }
+.ip-type.ip-type--h2 { font-size: var(--ip-type-36); line-height: 44px; letter-spacing: -0.027em; }
+.ip-type.ip-type--h3 { font-size: var(--ip-type-32); line-height: 40px; letter-spacing: -0.026em; }
+.ip-type.ip-type--h4 { font-size: var(--ip-type-28); line-height: 36px; letter-spacing: -0.024em; }
+.ip-type.ip-type--h5 { font-size: var(--ip-type-24); line-height: 32px; letter-spacing: -0.022em; }
+.ip-type.ip-type--h6 { font-size: var(--ip-type-20); line-height: 28px; letter-spacing: -0.018em; }
+.ip-type.ip-type--h7 { font-size: var(--ip-type-18); line-height: 26px; letter-spacing: -0.016em; }
+
+/* BODY optical line boxes and size-aware tracking */
+.ip-type.ip-type--body-large { font-size: var(--ip-type-18); line-height: 28px; letter-spacing: -0.018em; }
+.ip-type.ip-type--body-medium { font-size: var(--ip-type-16); line-height: 24px; letter-spacing: -0.015em; }
+.ip-type.ip-type--body-small { font-size: var(--ip-type-14); line-height: 21px; letter-spacing: -0.010em; }
+.ip-type.ip-type--body-xsmall { font-size: var(--ip-type-12); line-height: 18px; letter-spacing: 0.000em; }
+.ip-type.ip-type--body-xxsmall { font-size: var(--ip-type-11); line-height: 17px; letter-spacing: 0.000em; }
+
+/* LABEL optical line boxes and size-aware tracking */
+.ip-type.ip-type--label-large { font-size: var(--ip-type-18); line-height: 24px; letter-spacing: -0.015em; }
+.ip-type.ip-type--label-medium { font-size: var(--ip-type-16); line-height: 22px; letter-spacing: -0.013em; }
+.ip-type.ip-type--label-small { font-size: var(--ip-type-14); line-height: 20px; letter-spacing: -0.010em; }
+.ip-type.ip-type--label-xsmall { font-size: var(--ip-type-12); line-height: 17px; letter-spacing: 0.000em; }
+.ip-type.ip-type--label-xxsmall { font-size: var(--ip-type-11); line-height: 16px; letter-spacing: 0.000em; }
+
+/* CAPITAL optical line boxes and size-aware tracking */
+.ip-type.ip-type--capital-small { font-size: var(--ip-type-14); line-height: 20px; letter-spacing: 0.010em; text-transform: uppercase; }
+.ip-type.ip-type--capital-xsmall { font-size: var(--ip-type-12); line-height: 18px; letter-spacing: 0.015em; text-transform: uppercase; }
+
+.ip-type.ip-weight--regular { font-weight: 400; }
+.ip-type.ip-weight--medium { font-weight: 500; }
+.ip-type.ip-weight--semibold { font-weight: 600; }
+.ip-type.ip-weight--bold { font-weight: 700; }

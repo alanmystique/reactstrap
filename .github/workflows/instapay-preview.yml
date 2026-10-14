@@ -1,0 +1,22 @@
+name: InstaPay DS 2.1 Preview
+
+# Update the live preview whenever this design-system branch changes.
+# GitHub Pages is protected to deploy from the repository's default branch,
+# so this workflow dispatches the publisher there without merging DS code.
+on:
+  push:
+    branches:
+      - instapay/ds-2.1
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  request-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Pages build from default branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/${GITHUB_REPOSITORY}/dispatches" -f event_type=instapay-ds-preview

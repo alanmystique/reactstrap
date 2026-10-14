@@ -1,43 +1,30 @@
 import { addons } from '@storybook/addons';
-import { STORY_RENDERED } from '@storybook/core-events'
 import { create } from '@storybook/theming';
 
-const theme = create({
-  base: 'light',
-  brandTitle: 'Reactstrap',
-  brandUrl: 'https://github.com/reactstrap/reactstrap',
-  brandImage: 'logo.svg',
-});
-
 addons.setConfig({
-  theme
+  theme: create({
+    base: 'light',
+    brandTitle: 'InstaPay  /  Design System 2.1',
+    brandUrl: 'https://github.com/alanmystique/reactstrap/tree/instapay/ds-2.1',
+    colorPrimary: '#5926f0',
+    colorSecondary: '#5926f0',
+    appBg: '#f8f9fc',
+    appContentBg: '#ffffff',
+    appBorderColor: '#e3e6ee',
+    appBorderRadius: 8,
+    barBg: '#ffffff',
+    barTextColor: '#5b6376',
+    barSelectedColor: '#5926f0',
+    textColor: '#1b1f2a',
+    textInverseColor: '#ffffff',
+    fontBase: 'Inter, system-ui, -apple-system, sans-serif',
+    fontCode: 'ui-monospace, SFMono-Regular, Consolas, monospace',
+    inputBg: '#ffffff',
+    inputBorder: '#e1e5ee',
+    inputTextColor: '#1b1f2a',
+    inputBorderRadius: 6,
+    booleanBg: '#e1e5ee',
+    booleanSelectedBg: '#5926f0',
+  }),
+  sidebar: { showRoots: true },
 });
-
-addons.register('TitleAddon', api => {
-  const customTitle = 'Reactstrap';
-  let interval = null;
-  const setTitle = () => {
-    clearTimeout(interval);
-
-    let storyData = null;
-    try {
-        storyData = api.getCurrentStoryData();
-    } catch(e) {}
-
-    let title;
-    if (!storyData) {
-        title = customTitle;
-    } else {
-        title = `${storyData.kind} - ${storyData.name} ⋅ ${customTitle}`
-    }
-
-    if (document.title !== title) {
-        document.title = title;
-    }
-    interval = setTimeout(setTitle, 100);
-  };
-  setTitle();
-  api.on(STORY_RENDERED, story => {
-    setTitle();
-  })
-})
