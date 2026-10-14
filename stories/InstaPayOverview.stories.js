@@ -103,7 +103,7 @@ export function Overview() {
             <hr className="ip-rule" />
             <span className="ip-panel-subtitle">Quiet, useful elevation. Brand purple where intent matters.</span>
           </div>
-          <div className="ip-panel ip-col-7">
+          <div className="ip-panel ip-col-7 ip-activity-panel">
             <div className="ip-panel-header"><h3>Account activity</h3><Badge color="primary">Demo content</Badge></div>
             <ul className="ip-mini-activity">
               {activity.map((row) => (

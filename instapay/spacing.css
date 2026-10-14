@@ -15,9 +15,13 @@
   --ip-space-6: 32px;
   --ip-activity-avatar: 36px;
   --ip-activity-column-gap: 12px;
-  --ip-activity-copy-gap: 2px;
-  --ip-activity-row-inset: 8px;
-  --ip-activity-optical-shift: 0px;
+  --ip-activity-copy-gap: 1px;
+  --ip-activity-row-inset: 12px;
+  --ip-activity-optical-shift: -0.25px;
+  --ip-spacing-card-inset: 22px;
+}
+.ip-activity-panel {
+  padding: var(--ip-spacing-card-inset);
 }
 .ip-mini-activity li.ip-activity-row,
 .ip-spacing-lab li.ip-activity-row {
@@ -88,10 +92,10 @@
   --ip-outline: #eff1f6;
   --ip-activity-avatar: 36px;
   --ip-activity-column-gap: 12px;
-  --ip-activity-copy-gap: 2px;
-  --ip-activity-row-inset: 8px;
-  --ip-activity-optical-shift: 0px;
-  --ip-spacing-card-inset: 24px;
+  --ip-activity-copy-gap: 1px;
+  --ip-activity-row-inset: 12px;
+  --ip-activity-optical-shift: -0.25px;
+  --ip-spacing-card-inset: 22px;
   padding: clamp(18px, 3.5vw, 50px);
   min-height: 100vh;
   background: #f8f9fc;

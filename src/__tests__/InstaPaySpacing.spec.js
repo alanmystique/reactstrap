@@ -8,12 +8,15 @@ describe('InstaPay preview spacing', () => {
   it('keeps avatar/text relationships explicit in the candidate component', () => {
     expect(css).toContain('--ip-activity-avatar: 36px');
     expect(css).toContain('--ip-activity-column-gap: 12px');
-    expect(css).toContain('--ip-activity-copy-gap: 2px');
-    expect(css).toContain('--ip-activity-row-inset: 8px');
+    expect(css).toContain('--ip-activity-copy-gap: 1px');
+    expect(css).toContain('--ip-activity-row-inset: 12px');
+    expect(css).toContain('--ip-spacing-card-inset: 22px');
+    expect(css).toContain('--ip-activity-optical-shift: -0.25px');
   });
 
   it('uses a real text stack instead of a line break in the overview row', () => {
     expect(overview).toContain('className="ip-activity-copy"');
+    expect(overview).toContain('ip-activity-panel');
     expect(overview).not.toMatch(/<br\s*\/>.*ip-activity-time/);
     expect(css).toContain('grid-template-columns: var(--ip-activity-avatar) minmax(0, 1fr) auto;');
   });

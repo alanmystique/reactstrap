@@ -24,10 +24,10 @@ const rows = [
 const starting = {
   avatar: 36,
   columnGap: 12,
-  copyGap: 2,
-  rowInset: 8,
-  panelInset: 24,
-  opticalShift: 0,
+  copyGap: 1,
+  rowInset: 12,
+  panelInset: 22,
+  opticalShift: -0.25,
 };
 
 function OpticalRow({ row }) {
@@ -165,7 +165,7 @@ export function SpacingCalibration() {
               </ul>
             </section>
             <section className={`ip-spacing-lab__card ${guides ? 'ip-spacing-lab__guides' : ''}`}>
-              <h2 className="ip-spacing-lab__card-title">After · proposed optical row</h2>
+              <h2 className="ip-spacing-lab__card-title">After · your selected spacing</h2>
               <p className="ip-spacing-lab__sample-caption">
                 A centered avatar, true two-line stack, explicit relationships and equal top/bottom inset.
               </p>
@@ -187,7 +187,7 @@ export function SpacingCalibration() {
           <span className="ip-spacing-lab__label" id="ip-spacing-code-label">Copyable token proposal</span>
           <textarea aria-labelledby="ip-spacing-code-label" className="ip-spacing-lab__code" value={code} readOnly onFocus={e => e.target.select()} />
           <p className="ip-spacing-lab__note">
-            This is a Storybook-only candidate. It does not modify your Figma spacing or the released Reactstrap APIs.
+            These are your selected calibration values, still a Storybook-only candidate. It does not modify your Figma spacing or the released Reactstrap APIs.
             We will promote the approved values into shared DS tokens only after reviewing them in real product density.
           </p>
         </section>

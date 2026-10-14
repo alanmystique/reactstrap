@@ -1,32 +1,36 @@
-# InstaPay DS 2.1 — Optical spacing, first-pass candidate
+# InstaPay DS 2.1 — selected optical spacing calibration (candidate v2)
 
-The source of this first pass is the **Account Activity** row in the Storybook overview. The old row used a 34px avatar, an ad-hoc 10px gap, and inline text with a `<br />` creating unpredictable baseline spacing.
+The user-selected settings below are applied to the **Storybook Account Activity preview** and used as the **default values in Spacing Lab**. This is not yet a globally approved spacing scale.
 
-The candidate row instead uses a grid with three columns, centered avatar and title/subtitle stack, explicitly controlled two-line leading, and equal top/bottom insets.
-
-| Relationship | Initial candidate |
+| Relationship | Candidate v2 |
 | --- | ---: |
 | Avatar | 36px |
-| Avatar to text | 12px |
-| Title-to-subtitle gap | 2px |
-| Title | 13px / 18px |
-| Subtitle | 12px / 16px |
-| Row top and bottom | 8px each |
-| Card interior inset | 24px |
-| Text optical Y shift | 0px |
-| Avatar corner radius | 10px |
+| Avatar → text | 12px |
+| Title → subtitle | **1px** |
+| Row top and bottom inset | **12px each** |
+| Card interior inset | **22px** |
+| Text optical Y shift | **−0.25px** |
+| Title typography | 13px size / 18px line |
+| Subtitle typography | 12px size / 16px line |
+| Avatar radius | 10px |
 
-`36px` avatar matches a `18 + 2 + 16 = 36px` text stack, so both units share their vertical center. The row has 8px of vertical whitespace above and below the taller content. A 1px divider is drawn between rows.
+## Why these choices work together
+
+The two-line text stack measures `18 + 1 + 16 = 35px`, while the avatar is 36px. Both blocks are centered in the same grid row. The **−0.25px optical shift** nudges the text stack upward to balance the letterforms visually, but does not affect its layout footprint. Every row has symmetric `12px` top/bottom spacing, and the activity card receives an independently controlled `22px` inset.
+
+The total row content block is `36 + 12 + 12 = 60px` high before the optional 1px dividing stroke. The title and subtitle use explicit line heights and a real flex-column gap, never a `<br />`.
+
+The older spacing was a 34px avatar, 10px avatar/text gap, a line break instead of an exact title/subtitle gap, and 13px vertical row padding.
 
 ## Spacing primitives
 
-Use **4 / 8 / 12 / 16 / 24 / 32** as the first semantic spacing scale. Exception values are allowed for optical correction when justified by typography, not as ad-hoc layout constants.
+The baseline spacing ladder **4 / 8 / 12 / 16 / 24 / 32px** remains a provisional foundation, with deliberate **1px optical text gaps**, a **22px card inset**, and **−0.25px optical alignment** treated as *named contextual exceptions*. Don't force every layout relationship onto a global 4px grid.
 
-The live [Spacing Lab](https://alanmystique.github.io/reactstrap/?path=/story/instapay-ds-2-1-spacing-lab--spacing-calibration) exposes interactive controls for the row before this candidate is promoted to a reusable component.
+## Verification / review
 
-## Scope and safety
+- [Spacing Lab](https://alanmystique.github.io/reactstrap/?path=/story/instapay-ds-2-1-spacing-lab--spacing-calibration)
+- [InstaPay Overview](https://alanmystique.github.io/reactstrap/?path=/story/instapay-ds-2-1-overview--overview)
 
-- This is **not approved** as a global InstaPay spacing specification.
-- It changes only the preview Account Activity row and lab.
-- It does not alter Figma components, production Input CSS, or Reactstrap APIs.
-- After visual approval, encode the accepted relationship-based spacing in DS tokens and validate long content and narrow layouts.
+Evaluate repeated rows, long descriptions, currency alignments and narrow viewports before promoting these values to shared tokens.
+
+**Scope:** Storybook presentation only. The Figma component library, production Reactstrap components, and the input optical calibration are not modified by this candidate.
