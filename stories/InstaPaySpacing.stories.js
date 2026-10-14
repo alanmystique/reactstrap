@@ -134,10 +134,10 @@ export function SpacingCalibration() {
                 <div className="ip-spacing-lab__extremes"><span>{control.min}px</span><span>{control.max}px</span></div>
               </div>
             ))}
-            <label className="ip-spacing-lab__text-settings">
-              <input type="checkbox" checked={guides} onChange={e => setGuides(e.target.checked)} />
-              Show alignment guides
-            </label>
+            <div className="ip-spacing-lab__text-settings">
+              <input id="ip-spacing-guides" type="checkbox" checked={guides} onChange={e => setGuides(e.target.checked)} aria-label="Show alignment guides" />
+              <span>Show alignment guides</span>
+            </div>
             <div className="ip-spacing-lab__actions">
               <button className="ip-spacing-lab__button ip-spacing-lab__button--primary" type="button" onClick={copy}>Copy values</button>
               <button className="ip-spacing-lab__button" type="button" onClick={() => { setValues(starting); setGuides(false); setFeedback(''); }}>Reset</button>
@@ -187,8 +187,8 @@ export function SpacingCalibration() {
           <span className="ip-spacing-lab__label" id="ip-spacing-code-label">Copyable token proposal</span>
           <textarea aria-labelledby="ip-spacing-code-label" className="ip-spacing-lab__code" value={code} readOnly onFocus={e => e.target.select()} />
           <p className="ip-spacing-lab__note">
-            This is a Storybook-only candidate. It doesn't modify your Figma spacing or the released Reactstrap APIs.
-            We'll promote the approved values into shared DS tokens only after reviewing them in real product density.
+            This is a Storybook-only candidate. It does not modify your Figma spacing or the released Reactstrap APIs.
+            We will promote the approved values into shared DS tokens only after reviewing them in real product density.
           </p>
         </section>
       </div>
