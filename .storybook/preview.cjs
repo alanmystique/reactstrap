@@ -13,7 +13,7 @@ export const parameters = {
     storySort: {
       order: [
         'InstaPay DS 2.1',
-        ['Overview', 'Foundations', 'Typography', 'Buttons', 'Inputs', 'Form Controls', 'Navigation', 'Feedback'],
+        ['Overview', 'Foundations', 'Typography', 'Buttons', 'Inputs', 'Input Calibration', 'Form Controls', 'Navigation', 'Feedback'],
         'Components',
         'Reactstrap Reference',
         '*',
