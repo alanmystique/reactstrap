@@ -49,6 +49,12 @@ When consuming **this repository from source** rather than a published package, 
 - Typography: Inter Medium, -3% tracking.
 - Icons: use existing Phosphor Outline-Regular assets from the application. This fork does not bundle an icon library.
 
+## Optical spacing exploration
+
+Our [Spacing Lab](https://alanmystique.github.io/reactstrap/?path=/story/instapay-ds-2-1-spacing-lab--spacing-calibration) shows the old Account Activity row alongside a proposed vertically centered, grid-based two-line layout. Adjustable avatar size, avatar-to-text gap, title-to-subtitle gap, symmetrical row inset, panel inset and optical offset let us calibrate repeatedly used transaction rows.
+
+**Status: candidate.** The overview preview uses the proposed layout, but the global Figma spacing system, 30 input variants and shipped Reactstrap components remain untouched. The preview-only treatment is `instapay/spacing.css`; token selection must be reviewed before wider propagation.
+
 ## Input optical calibration lab
 
 The interactive [Optical Input Lab](https://alanmystique.github.io/reactstrap/?path=/story/instapay-ds-2-1-input-calibration--optical-playground) compares three **experimental** input sizes with adjustable Inter Variable weight (425–475), letter spacing, vertical optical shift and icon gap. The values can be copied as candidate CSS tokens.

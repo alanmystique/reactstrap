@@ -107,11 +107,12 @@ export function Overview() {
             <div className="ip-panel-header"><h3>Account activity</h3><Badge color="primary">Demo content</Badge></div>
             <ul className="ip-mini-activity">
               {activity.map((row) => (
-                <li key={row.name}>
-                  <div className="ip-action-row" style={{ gap: 10 }}>
-                    <span className="ip-avatar">{row.initials}</span>
-                    <span><span className="ip-activity-name">{row.name}</span><br /><span className="ip-activity-time">{row.type}</span></span>
-                  </div>
+                <li key={row.name} className="ip-activity-row">
+                  <span className="ip-avatar" aria-hidden="true">{row.initials}</span>
+                  <span className="ip-activity-copy">
+                    <span className="ip-activity-name">{row.name}</span>
+                    <span className="ip-activity-time">{row.type}</span>
+                  </span>
                   <span className="ip-activity-amount">{row.amount}</span>
                 </li>
               ))}
