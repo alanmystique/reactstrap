@@ -115,37 +115,37 @@ export function OpticalPlayground() {
 
             <div className="ip-cal__control-group">
               <div className="ip-cal__control-heading">
-                <label className="ip-cal__control-label" htmlFor="ip-cal-weight">Font weight</label>
+                <span className="ip-cal__control-label" id="ip-cal-weight-label">Font weight</span>
                 <span className="ip-cal__value">{weight}</span>
               </div>
-              <input id="ip-cal-weight" type="range" min="425" max="475" step="5" value={weight} onChange={e => setWeight(Number(e.target.value))} />
+              <input id="ip-cal-weight" type="range" aria-labelledby="ip-cal-weight-label" min="425" max="475" step="5" value={weight} onChange={e => setWeight(Number(e.target.value))} />
               <div className="ip-cal__limits"><span>425 · lighter</span><span>475 · stronger</span></div>
             </div>
 
             <div className="ip-cal__control-group">
               <div className="ip-cal__control-heading">
-                <label className="ip-cal__control-label" htmlFor="ip-cal-tracking">Letter spacing</label>
+                <span className="ip-cal__control-label" id="ip-cal-tracking-label">Letter spacing</span>
                 <span className="ip-cal__value">{tracking.toFixed(1)}%</span>
               </div>
-              <input id="ip-cal-tracking" type="range" min="-1.5" max="1" step="0.1" value={tracking} onChange={e => setTracking(Number(e.target.value))} />
+              <input id="ip-cal-tracking" type="range" aria-labelledby="ip-cal-tracking-label" min="-1.5" max="1" step="0.1" value={tracking} onChange={e => setTracking(Number(e.target.value))} />
               <div className="ip-cal__limits"><span>-1.5% · tight</span><span>+1% · loose</span></div>
             </div>
 
             <div className="ip-cal__control-group">
               <div className="ip-cal__control-heading">
-                <label className="ip-cal__control-label" htmlFor="ip-cal-offset">Vertical optical shift</label>
+                <span className="ip-cal__control-label" id="ip-cal-offset-label">Vertical optical shift</span>
                 <span className="ip-cal__value">{offset > 0 ? '+' : ''}{offset.toFixed(2)}px</span>
               </div>
-              <input id="ip-cal-offset" type="range" min="-2" max="2" step="0.25" value={offset} onChange={e => setOffset(Number(e.target.value))} />
+              <input id="ip-cal-offset" type="range" aria-labelledby="ip-cal-offset-label" min="-2" max="2" step="0.25" value={offset} onChange={e => setOffset(Number(e.target.value))} />
               <div className="ip-cal__limits"><span>-2px · up</span><span>0 · centered</span><span>+2px · down</span></div>
             </div>
 
             <div className="ip-cal__control-group">
               <div className="ip-cal__control-heading">
-                <label className="ip-cal__control-label" htmlFor="ip-cal-gap">Icon-to-text gap</label>
+                <span className="ip-cal__control-label" id="ip-cal-gap-label">Icon-to-text gap</span>
                 <span className="ip-cal__value">{iconGap}px</span>
               </div>
-              <input id="ip-cal-gap" type="range" min="6" max="14" step="1" value={iconGap} onChange={e => setIconGap(Number(e.target.value))} />
+              <input id="ip-cal-gap" type="range" aria-labelledby="ip-cal-gap-label" min="6" max="14" step="1" value={iconGap} onChange={e => setIconGap(Number(e.target.value))} />
               <div className="ip-cal__limits"><span>6px · compact</span><span>14px · airy</span></div>
             </div>
 
@@ -246,8 +246,8 @@ export function OpticalPlayground() {
               </p>
             </div>
           </div>
-          <label className="ip-cal__code-label" htmlFor="ip-cal-code">Live CSS values</label>
-          <textarea id="ip-cal-code" className="ip-cal__code" readOnly value={tokens} onFocus={e => e.target.select()} />
+          <span className="ip-cal__code-label" id="ip-cal-code-label">Live CSS values</span>
+          <textarea id="ip-cal-code" aria-labelledby="ip-cal-code-label" className="ip-cal__code" readOnly value={tokens} onFocus={e => e.target.select()} />
           <div className="ip-cal__footnote">Nothing changes in the 30 Figma input variants or the shipped Reactstrap input styles until you approve this calibration.</div>
         </section>
       </div>
