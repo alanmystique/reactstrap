@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import '../instapay/spacing.css';
 
 export default {
@@ -41,8 +42,6 @@ function OpticalRow({ row }) {
     </li>
   );
 }
-
-import PropTypes from 'prop-types';
 
 OpticalRow.propTypes = {
   row: PropTypes.shape({
